@@ -5,16 +5,42 @@
 .form button {
   font: inherit;
   cursor: pointer;
-  background-color: #4BBD27;
+  background-color: #4bbd27;
   border: 1px solid #185705;
   color: white;
-  padding: 0.25rem 2rem;
+  padding: 0.5rem 2rem;
   border-radius: 20px;
   font-weight: bold;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
 }
+
+/*
+ mt-1 bg-cta p-2 px-7 rounded-xl
 
 .form button:hover,
 .form button:active {
-  background-color: #4d7641;
+  background-color: #fef433;
   border-color: #185705;
+} */
+
+.form button span {
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background:  white;
+  border-radius: 20px;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.form button:hover span {
+  width: 100%;
+}
+
+.form button:hover {
+  color: #4bbd27;
 }

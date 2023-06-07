@@ -8,32 +8,39 @@ const MealItem = (props) => {
 
   const price = `$${props.price.toFixed(2)}`;
 
-  const addToCartHandler = (amount) => {
+  const addToCartHandler = (quantity) => {
     cartCtx.addItem({
       id: props.id,
       name: props.name,
-      amount: amount,
+      quantity: quantity,
       price: props.price,
     });
   };
 
-
-
   return (
-    <li className={classes.meal}>
-      <div>
-        <div>
-          <img src={props.pict} alt="" className={classes.avatar} />
+    <div className={classes.meal}>
+      <div className={classes["single-food"]}>
+        <img src={props.pict} alt="" className={classes.avatar} />
+        <div className={classes.overlay}></div>
+        <div className={classes["food-desc"]}>
+          <span className={classes.span}>{props.name}</span> <br /> {" "}
+          <br /> <br /> <br />
+          <em>
+            <strong>Click for More details</strong>
+          </em>
         </div>
-        <h3>{props.name}</h3>
-        {/* <div className={classes.description}>{props.description}</div> */}
-        <div className={classes.price}>{price}</div>
       </div>
-
+      <div>
+        {/* <div className={classes.description}>{props.description}</div> */}
+        <div className={classes.price}>
+          <span> Price: </span>
+          {price}
+        </div>
+      </div>
       <div>
         <MealItemForm id={props.id} onAddToCart={addToCartHandler} />
       </div>
-    </li>
+    </div>
   );
 };
 

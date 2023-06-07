@@ -4,6 +4,7 @@ import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <CartProvider>
+      <Toaster/>
       {cartIsShown && <Cart onClose={hideCartHandler} />}
 
       <Header onShowCart={showCartHandler} onClose={hideCartHandler} />

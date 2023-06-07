@@ -1,0 +1,7 @@
+.food-details {
+  display: flex;
+  gap : 8px;
+  background: url('../../../assests/bg2.jpeg');
+  background-position: center;
+
+}

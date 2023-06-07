@@ -1,18 +1,12 @@
-const foodInStock = [
+export const FoodInStock = [
   {
     id: 1,
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Muamba-Galinha.jpg",
-    name: "Muamba-Galinha ",
+    name: "Muamba-Galinha of Democratic Republic of Congo",
     description:
       "moamba galinha is the Democratic Republic of Congo’s national dish",
     price: 22.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 2,
@@ -20,13 +14,7 @@ const foodInStock = [
     name: "Couscous from North Africa",
     description: "Couscous in the Berber language means rolled or rounded",
     price: 22.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 3,
@@ -34,13 +22,7 @@ const foodInStock = [
     name: "Jollof Rice",
     description: "Jollof-rice A one-pot dish with rice as the star ingredient",
     price: 22.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 4,
@@ -49,13 +31,7 @@ const foodInStock = [
     description:
       "Cachupa has a smooth, buttery texture. The taste is an assortment of the different vegetable and meat varieties added to it",
     price: 22.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 5,
@@ -64,13 +40,7 @@ const foodInStock = [
     description:
       "Cameroon ndole is a delicious stew mainly comprising boiled bitter leaves, melon seeds, and peanuts, besides fish or meat",
     price: 22.99,
-    nutrients: {
-      energy: "64 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 6,
@@ -79,13 +49,7 @@ const foodInStock = [
     description:
       "a mouthwatering stew prepared by marinating chicken in vinegar, onion, and lemon.",
     price: 6.5,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.8 (g)",
-      fat: "1.2 (g)",
-      water: "15.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 7,
@@ -95,13 +59,7 @@ const foodInStock = [
       "it is made by cooking chicken pieces, okra, tomato, eggplant, onion, garlic, thyme, chili pepper, ginger, and chicken broth together.",
 
     price: 7.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 8,
@@ -110,13 +68,7 @@ const foodInStock = [
     description:
       "made with ogbono seeds alongside other ingredients like onion, red palm oil, seasoning cube, stock, leafy and non-leafy vegetables (like spinach, bitter leaf, okra, tomato) as well as meat or fish",
     price: 8.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 9,
@@ -125,28 +77,16 @@ const foodInStock = [
     description:
       " a spicy vegetable dish prepared with tomato, onion, carrot, bean, bell pepper, ginger, and chili. ",
     price: 9.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 10,
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Boerewors-640x480.jpg    ",
-    name: "Boerewors f.’ sausage",
+    name: "Boerewors farmers’ sausage",
     description:
       "Boer means farmer, and wors translates to sausage, meaning farmers’ sausage, typical of South Africa.",
     price: 10.5,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 11,
@@ -156,13 +96,7 @@ const foodInStock = [
       "made with lamb or ground beef or occasionally pork. Other ingredients include a whole lot of things like curry powder, spices, herbs, and vinegar.",
 
     price: 11.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 12,
@@ -171,13 +105,7 @@ const foodInStock = [
     description:
       "is a famous street food that originated in the middle half of the 19th century. This dish’s main ingredients include rice, lentils, and macaroni",
     price: 12.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 13,
@@ -186,13 +114,7 @@ const foodInStock = [
     description:
       "a fried plantain dish of West and East Africa, seasoned in garlic, parsley, tomato, onion, green pepper, and black pepper. ",
     price: 13.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 14,
@@ -201,27 +123,14 @@ const foodInStock = [
     description:
       "It is a delicious Nigerian soup prepared with palm fruit, vegetables, beef, and fish, alongside chili pepper and salt seasonings..",
     price: 14.5,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
   {
     id: 15,
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Chicken-Tagine-640x575.jpg",
     name: "chicken tajine",
     description: "Couscous in the Berber language means rolled or rounded",
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
-
+    currency: "USD",
     price: 15.5,
   },
   {
@@ -231,25 +140,6 @@ const foodInStock = [
     description:
       "Senegal’s national dish, thieboudienne, was prepared by cooking rice and fish in a single pot seasoned in tomato sauce.",
     price: 16.99,
-    nutrients: {
-      energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
-      water: "10.6 (g)",
-    },
+    currency: "USD",
   },
 ];
-
-function getfoodInStock(id) {
-  let productData = foodInStock.find((product) => product.id === id);
-
-  if (productData == undefined) {
-    console.log("Product data does not exist for ID: " + id);
-    return undefined;
-  }
-
-  return productData;
-}
-
-export { foodInStock, getfoodInStock };
