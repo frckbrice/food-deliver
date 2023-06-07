@@ -242,9 +242,12 @@ const foodInStock = [
 ];
 
 function getfoodInStock(id) {
-  let productData = foodInStock.find((product) => product.id === id);
+  console.log("in getfood the id is", id);
 
-  if (productData == undefined) {
+  let productData = foodInStock.find((product) => product.id == id);
+  console.log("productData", productData);
+
+  if (productData === undefined) {
     console.log("Product data does not exist for ID: " + id);
     return undefined;
   }

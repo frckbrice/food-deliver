@@ -2,6 +2,7 @@ import classes from "./MealItem.module.css";
 import MealItemForm from "./MealItemForm";
 import { useContext } from "react";
 import CartContext from "../../../store/cart-context";
+import { Link } from "react-router-dom";
 
 const MealItem = (props) => {
   const cartCtx = useContext(CartContext);
@@ -20,18 +21,21 @@ const MealItem = (props) => {
   return (
     <div className={classes.meal}>
       <div className={classes["single-food"]}>
-        <img src={props.pict} alt="" className={classes.avatar} />
-        <div className={classes.overlay}></div>
-        <div className={classes["food-desc"]}>
-          <span className={classes.span}>{props.name}</span> <br /> {" "}
-          <br /> <br /> <br />
-          <em>
-            <strong>Click for More details</strong>
-          </em>
-        </div>
+        <Link to={`/foodDetails/${props.id}`}>
+          <img src={props.pict} alt="" className={classes.avatar} />
+
+          <div className={classes.overlay}></div>
+          <div className={classes["food-desc"]}>
+            <span className={classes.span}>{props.name}</span> <br /> <br />{" "}
+            <br /> <br />
+            <em>
+              <strong>Click for More details</strong>
+            </em>
+          </div>
+        </Link>
       </div>
+
       <div>
-        {/* <div className={classes.description}>{props.description}</div> */}
         <div className={classes.price}>
           <span> Price: </span>
           {price}

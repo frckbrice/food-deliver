@@ -5,7 +5,7 @@
 .form button {
   font: inherit;
   cursor: pointer;
-  background-color: #4bbd27;
+  background-color: #74fa4b;
   border: 1px solid #185705;
   color: white;
   padding: 0.5rem 2rem;
@@ -31,7 +31,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background:  white;
+  background:  rgb(255, 255, 255);
   border-radius: 20px;
   z-index: -1;
   transition: 0.5s;
@@ -42,5 +42,5 @@
 }
 
 .form button:hover {
-  color: #4bbd27;
+  color: #000;
 }

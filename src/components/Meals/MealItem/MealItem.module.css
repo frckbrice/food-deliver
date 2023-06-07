@@ -61,7 +61,7 @@
   top: 0;
   border-radius: 1.5rem;
   
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(66, 117, 36, 0.374));
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(105, 195, 72, 0.374));
   opacity: 0;
   transition: 1s ease-in;
 }
@@ -82,9 +82,10 @@
 
 .food-desc em {
   font-size: 1rem;
+  color: #fff;
 }
 
 .single-food:hover .food-desc {
-  bottom: 40%;
+  bottom: 30%;
   opacity: 1;
 }

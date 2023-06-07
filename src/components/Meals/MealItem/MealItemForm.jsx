@@ -3,7 +3,7 @@ import Input from "../../UI/Input";
 import { useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import { getfoodInStock } from "../GetFoods";
-import { Link } from "react-router-dom";
+
 
 const MealItemForm = (props) => {
   const [amountIsValid, setAmountIsValid] = useState(true);
@@ -51,13 +51,7 @@ const MealItemForm = (props) => {
         </button>
         {!amountIsValid && <p>Please enter a valid amount (1-10).</p>}
       </form>
-      <div className="price-btn ">
-        <Link to="/">
-          <button className="go-back">
-            Go Back
-          </button>
-        </Link>
-      </div>
+     
     </>
   );
 };

@@ -4,7 +4,7 @@
   background:  url("../../assests/bg2.jpeg");
   background-position: center;
   /* background-repeat: no-repeat; */
-  /* background-size: cover; */
+  background-size: cover;
   padding: 1rem;
   box-shadow: 0 2px 20px 10px rgba(70, 41, 16, 0.95);
   border-radius: 14px;

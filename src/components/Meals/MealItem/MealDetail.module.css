@@ -1,7 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Philosopher&display=swap");
+
 .food-details {
   display: flex;
-  gap : 8px;
-  background: url('../../../assests/bg2.jpeg');
+  background: url("../../../assests/bg2.jpeg");
   background-position: center;
+  justify-content: center;
+  align-items: center;
+  /* padding-top: 5%; */
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  font-family: Philosopher, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+}
 
+.div-image {
+  display: flex;
+  margin: 30px 50px;
+}
+
+.food-image {
+  width: 25rem;
+  height: 23rem;
+  border-radius: 15%;
+  object-fit: cover;
+  margin-right: 5%;
+}
+
+.go-back {
+  font: inherit;
+  cursor: pointer;
+  background-color: #74fa4b;
+  border: 1px solid #185705;
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+   position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.go-back span {
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background:  rgb(255, 255, 255);
+  border-radius: 20px;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.go-back:hover span {
+  width: 100%;
+}
+
+.go-back:hover {
+  color: #000;
 }
