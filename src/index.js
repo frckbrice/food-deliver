@@ -7,6 +7,7 @@ import ErrorPage from "./ErrorPage";
 import FoodDetail from "./components/Meals/MealItem/MealDetail";
 import { Toaster } from "react-hot-toast";
 import CartProvider from "./store/CartProvider";
+import ShowCart from "./components/Meals/MealItem/ShowCartDetail";
 
 const router = createBrowserRouter([
   {
@@ -24,13 +25,21 @@ const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
   },
+  {
+    path: "foodDetails/showCart",
+    element: (
+      <CartProvider>
+        <Toaster />
+        <ShowCart />
+      </CartProvider>
+    ),
+    errorElement: <ErrorPage />,
+  },
 ]);
-
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router = {router} />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

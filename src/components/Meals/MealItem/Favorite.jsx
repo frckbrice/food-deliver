@@ -1,11 +1,11 @@
 import React from "react";
 import { useFetcher } from "react-router-dom";
-import { updateContact } from '../functions'
+import { updateMeal } from "../functions";
 
 export async function action({ request, params }) {
   console.log("request.formData in favorite");
   let formData = await request.formData();
-  return updateContact(params.contactId, {
+  return updateMeal(params.contactId, {
     favorite: formData.get("favorite") === "true",
   });
 }

@@ -1,34 +1,32 @@
 import React, { useContext, useCallback, memo } from "react";
 import PropTypes from "prop-types";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getfoodInStock } from "../GetFoods";
 import MealItemForm from "./MealItemForm";
 import CartContext from "../../../store/cart-context";
 import { toast } from "react-hot-toast";
 import classes from "./MealDetail.module.css";
-import HeaderFoodDetail from "./HeaderFoodDetail";
+import HeaderFoodDetail from "../../Layout/HeaderFoodDetail";
 import Favorite from "./Favorite";
 
 const FoodDetail = (props) => {
+  const navigate = useNavigate();
   const { foodId } = useParams();
   const foodIdMeal = getfoodInStock(foodId);
   // console.log("in foodDetail file", foodIdMeal);
 
   const cartCtx = useContext(CartContext);
 
-  const addToCartHandler = useCallback(
-    (quantity) => {
-      cartCtx.addItem({
-        id: foodIdMeal.id,
-        name: foodIdMeal.name,
-        quantity: quantity,
-        price: foodIdMeal.price,
-        pict: foodIdMeal.pict,
-      });
-      toast(`Adding ${quantity} ${foodIdMeal.name} in the cart`);
-    },
-    [foodIdMeal.id, foodIdMeal.name, foodIdMeal.price, foodIdMeal.pict, cartCtx]
-  );
+  const addToCartHandler = (quantity) => {
+    cartCtx.addItem({
+      id: foodIdMeal.id,
+      name: foodIdMeal.name,
+      quantity: quantity,
+      price: foodIdMeal.price,
+      pict: foodIdMeal.pict,
+    });
+    toast(`Adding ${quantity} ${foodIdMeal.name} in the cart`);
+  };
 
   return (
     <div className={classes["food-details"]}>
@@ -82,12 +80,10 @@ const FoodDetail = (props) => {
             price={foodIdMeal.price}
           />
           <div className={classes["price-btn"]}>
-            <Link to="/">
-              <button className={classes["go-back"]}>
-                {" "}
-                <span></span>Go Back
-              </button>
-            </Link>
+            <button className={classes["go-back"]} onClick={() => navigate(-1)}>
+              {" "}
+              <span></span>Go Back
+            </button>
           </div>
         </div>
       </div>
@@ -105,4 +101,4 @@ FoodDetail.propTypes = {
   currency: PropTypes.string,
 };
 
-export default React.memo(FoodDetail);
+export default memo(FoodDetail);

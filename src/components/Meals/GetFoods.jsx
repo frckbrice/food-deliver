@@ -1,6 +1,6 @@
 const foodInStock = [
   {
-    id: 1,
+    id: "1",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Muamba-Galinha.jpg",
     name: "Muamba-Galinha ",
     description:
@@ -15,7 +15,7 @@ const foodInStock = [
     },
   },
   {
-    id: 2,
+    id: "2",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Couscous-640x480.jpg",
     name: "Couscous from North Africa",
     description: "Couscous in the Berber language means rolled or rounded",
@@ -29,7 +29,7 @@ const foodInStock = [
     },
   },
   {
-    id: 3,
+    id: "3",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Jollof-Rice-640x427.jpg",
     name: "Jollof Rice",
     description: "Jollof-rice A one-pot dish with rice as the star ingredient",
@@ -43,7 +43,7 @@ const foodInStock = [
     },
   },
   {
-    id: 4,
+    id: "4",
     name: "Cachupa",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Cachupa-640x480.jpg",
     description:
@@ -58,7 +58,7 @@ const foodInStock = [
     },
   },
   {
-    id: 5,
+    id: "5",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Ndole.jpg",
     name: "Cameroon ndole",
     description:
@@ -73,7 +73,7 @@ const foodInStock = [
     },
   },
   {
-    id: 6,
+    id: "6",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Yassa-640x360.jpg",
     name: "yassa or chicken yassa",
     description:
@@ -88,7 +88,7 @@ const foodInStock = [
     },
   },
   {
-    id: 7,
+    id: "7",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Kedjenou-640x427.jpg",
     name: "Kedjenou",
     description:
@@ -104,7 +104,7 @@ const foodInStock = [
     },
   },
   {
-    id: 8,
+    id: "8",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Ogbono-Soup.jpg ",
     name: "ogbono ",
     description:
@@ -119,7 +119,7 @@ const foodInStock = [
     },
   },
   {
-    id: 9,
+    id: "9",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Chakalaka-640x458.jpg",
     name: "chakalaka",
     description:
@@ -134,7 +134,7 @@ const foodInStock = [
     },
   },
   {
-    id: 10,
+    id: "10",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Boerewors-640x480.jpg    ",
     name: "Boerewors f.’ sausage",
     description:
@@ -149,7 +149,7 @@ const foodInStock = [
     },
   },
   {
-    id: 11,
+    id: "11",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Bobotie-640x427.jpg",
     name: "Bobotie",
     description:
@@ -165,7 +165,7 @@ const foodInStock = [
     },
   },
   {
-    id: 12,
+    id: "12",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Koshary-640x480.jpg",
     name: "Koshary or kosheri",
     description:
@@ -180,7 +180,7 @@ const foodInStock = [
     },
   },
   {
-    id: 13,
+    id: "13",
     pict: " https://flavorverse.com/wp-content/uploads/2021/01/Alloco-640x416.png",
     name: " Alloco",
     description:
@@ -195,7 +195,7 @@ const foodInStock = [
     },
   },
   {
-    id: 14,
+    id: "14",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Banga-Soup.jpg",
     name: "Banga-Soup",
     description:
@@ -210,7 +210,7 @@ const foodInStock = [
     },
   },
   {
-    id: 15,
+    id: "15",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Chicken-Tagine-640x575.jpg",
     name: "chicken tajine",
     description: "Couscous in the Berber language means rolled or rounded",
@@ -225,7 +225,7 @@ const foodInStock = [
     price: 15.5,
   },
   {
-    id: 16,
+    id: "16",
     pict: " https://flavorverse.com/wp-content/uploads/2021/01/Thieboudienne-640x425.jpg",
     name: "thieboudienne",
     description:
@@ -244,11 +244,9 @@ const foodInStock = [
 function getfoodInStock(id) {
   console.log("in getfood the id is", id);
 
-  let productData = foodInStock.find((product) => product.id == id);
-  console.log("productData", productData);
+  let productData = foodInStock.find((product) => product.id === id);
 
   if (productData === undefined) {
-    console.log("Product data does not exist for ID: " + id);
     return undefined;
   }
 

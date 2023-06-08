@@ -1,6 +1,6 @@
 import classes from "./MealItem.module.css";
 import MealItemForm from "./MealItemForm";
-import { useContext } from "react";
+import { useCallback, useContext, memo } from "react";
 import CartContext from "../../../store/cart-context";
 import { Link } from "react-router-dom";
 
@@ -10,13 +10,14 @@ const MealItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
 
   const addToCartHandler = (quantity) => {
-    cartCtx.addItem({
-      id: props.id,
-      name: props.name,
-      quantity: quantity,
-      price: props.price,
-    });
-  };
+      cartCtx.addItem({
+        id: props.id,
+        name: props.name,
+        quantity: quantity,
+        price: props.price,
+      });
+    }
+   
 
   return (
     <div className={classes.meal}>
@@ -48,4 +49,4 @@ const MealItem = (props) => {
   );
 };
 
-export default MealItem;
+export default memo(MealItem);

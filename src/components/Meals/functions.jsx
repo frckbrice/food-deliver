@@ -2,56 +2,56 @@ import localforage from "localforage";
 import { matchSorter } from "match-sorter";
 import sortBy from "sort-by";
 
-export async function getContacts(query) {
-  await fakeNetwork(`getContacts:${query}`);
-  let contacts = await localforage.getItem("contacts");
-  if (!contacts) contacts = [];
+export async function getMeals(query) {
+  await fakeNetwork(`getMeals:${query}`);
+  let meals = await localforage.getItem("meals");
+  if (!meals) meals = [];
   if (query) {
-    contacts = matchSorter(contacts, query, { keys: ["first", "last"] });
+    meals = matchSorter(meals, query, { keys: ["first", "last"] });
   }
-  return contacts.sort(sortBy("last", "createdAt"));
+  return meals.sort(sortBy("last", "createdAt"));
 }
 
-export async function createContact() {
+export async function createMeal() {
   await fakeNetwork();
   let id = Math.random().toString(36).substring(2, 9);
-  let contact = { id, createdAt: Date.now() };
-  let contacts = await getContacts();
-  contacts.unshift(contact);
-  await set(contacts);
-  return contact;
+  let meal = { id, createdAt: Date.now() };
+  let meals = await getMeals();
+  meals.unshift(meal);
+  await set(meals);
+  return meal;
 }
 
-export async function getContact(id) {
-  await fakeNetwork(`contact:${id}`);
-  let contacts = await localforage.getItem("contacts");
-  let contact = contacts.find((contact) => contact.id === id);
-  return contact ?? null;
+export async function getMeal(id) {
+  await fakeNetwork(`meal:${id}`);
+  let meals = await localforage.getItem("meals");
+  let meal = meals.find((meal) => meal.id === id);
+  return meal ?? null;
 }
 
-export async function updateContact(id, updates) {
+export async function updateMeal(id, updates) {
   await fakeNetwork();
-  let contacts = await localforage.getItem("contacts");
-  let contact = contacts.find((contact) => contact.id === id);
-  if (!contact) throw new Error("No contact found for", id);
-  Object.assign(contact, updates);
-  await set(contacts);
-  return contact;
+  let meals = await localforage.getItem("meals");
+  let meal = meals.find((meal) => meal.id === id);
+  if (!meal) throw new Error("No meal found for", id);
+  Object.assign(meal, updates);
+  await set(meals);
+  return meal;
 }
 
-export async function deleteContact(id) {
-  let contacts = await localforage.getItem("contacts");
-  let index = contacts.findIndex((contact) => contact.id === id);
+export async function deleteMeal(id) {
+  let meals = await localforage.getItem("meals");
+  let index = meals.findIndex((meal) => meal.id === id);
   if (index > -1) {
-    contacts.splice(index, 1);
-    await set(contacts);
+    meals.splice(index, 1);
+    await set(meals);
     return true;
   }
   return false;
 }
 
-function set(contacts) {
-  return localforage.setItem("contacts", contacts);
+function set(meals) {
+  return localforage.setItem("meals", meals);
 }
 
 // fake a cache so we don't slow down stuff we've already seen

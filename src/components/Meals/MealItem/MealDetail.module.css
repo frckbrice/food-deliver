@@ -4,24 +4,25 @@
   display: flex;
   background: url("../../../assests/bg2.jpeg");
   background-position: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  /* padding-top: 5%; */
+  padding-left: 10%;
   height: 100vh;
   overflow: hidden;
   color: #fff;
   font-family: Philosopher, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     sans-serif;
+    position: relative;
 }
 
 .div-image {
   display: flex;
-  margin: 30px 50px;
+  margin: 30px 50px 0 0;
 }
 
 .food-image {
   width: 25rem;
-  height: 23rem;
+  height: 25rem;
   border-radius: 15%;
   object-fit: cover;
   margin-right: 5%;
@@ -39,6 +40,10 @@
    position: relative;
   display: inline-block;
   z-index: 1;
+  position: absolute;
+  top: 165px;
+  right: 230px;
+  
 }
 
 .go-back span {
@@ -59,4 +64,11 @@
 
 .go-back:hover {
   color: #000;
+}
+
+.div-mealItemForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

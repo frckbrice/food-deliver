@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Permanent+Marker&family=Satisfy&display=swap');
+
+
+.cart-wrapper{
+  text-align: center;
+  background: url('../../../assests/bg2.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+} 
+/* text-center bg-foodDetails bg-no-repeat bg-cover min-h-screen  w-screen pr-14 */
+
+.empty-card{
+  color: red;
+  font-size: 20px;
+} 
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  gap: 4px;
+} 
+
+.empty-cart {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue; 
+  /* w-screen h-screen overflow-hidden text-purple */
+}
+
+.item-card {
+  display: flex;
+  gap: 10px;
+  color: aliceblue;
+  border-bottom: 1px solid green;
+  margin-bottom: 4px;
+  padding: 6px 0;
+} 
+
+.div2-image {
+  width: 40px;
+  height: 144px;
+  padding-left: 20px;
+}
+ /* w-2/5 h-48 pl-20 */
+.food-image2 {
+  width: 100%;
+  height: 200px;
+} 
+/* w-full h-72 rounded-3xl */
+.item-details {
+  font-family: "Satisfy";
+}
+
+.name-and-remove{
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+ /* flex flex-col gap-y-2 justify-between text-start */
+
+.remove-item {
+margin-left: 60px;
+color: red;
+font-size: 23px;
+}
+/* ml-12 text-red text-2xl  */
+
+.nutrients {
+  /* border-b  border-cta mb-2 */
+  border: 1px solid orangered;
+  margin-bottom: 20px;
+}
+
+.pandq{
+margin-top: 70px;
+display: flex;
+flex-direction: column;
+gap: 50px;
+justify-content: flex-start;
+} 
+/* mt-7 items-start flex flex-col gap-y-6   */
+
+.price {
+margin-right: 50px;
+border: 1px solid orangered; 
+padding: 20px 50px;
+} 
+/* mr-5 border border-cta px-5 py-2 */
+
+.plus,
+.minus {
+  margin-right: 20px;
+  border: 1px solid orangered;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 30px;
+}
+/* mr-2 border p-3  border-cta rounded-full cursor-pointer */
+
+.order-summary {
+  color: aliceblue;
+display: flex;
+flex-direction: column;
+gap: 10px;
+font-family: Satisfy, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+position: relative;
+height: 130px;
+align-items: flex-start;
+border-radius: 15px;
+}
+ /* text-white gap-y-5 font-Satisfy  w-64 flex flex-col p-5 items-start rounded-2xl h-96 relative " */
+.title {
+  font-size: 20px;
+  text-decoration: underline;
+}
+ /* .text-3xl underline */
+
+ .btn {
+  position: absolute;
+  bottom: 40px;
+  margin-left: 30px;
+  background-color: green;
+  border-radius: 20px;
+  width: 120px;
+ }
+  /* absolute bottom-4 ml-3 bg-green rounded-xl w-48 p-2  */
