@@ -10,8 +10,11 @@ import HeaderFoodDetail from "../../Layout/HeaderFoodDetail";
 import "./ShowCartDetail.module.css";
 import Emptyplate from "../../../assests/emptyplate.png";
 import Card2 from "../../UI/Card2";
+import { useNavigate } from "react-router-dom";
 
 const ShowCart = () => {
+  const navigate = useNavigate();
+
   toast.success("This is the content of your cart content!");
 
   const cartRef = useRef();
@@ -20,22 +23,10 @@ const ShowCart = () => {
 
   const { totalAmount, meals, removeItem, deleteItem, addItem } = cartCtx;
 
-  // console.log(incQty)
-
-  // const { totalAmount, meals } = JSON.parse(
-  //   localStorage.getItem("updatedmeals")
-  // );
-  // console.log(meals);
-
-  // const [quantity, setQuantity] = useState();
-
-  const handleCheckout = () => {};
-
   return (
     <div className={classes["cart-wrapper"]} ref={cartRef}>
       <HeaderFoodDetail />
 
-      {/* <div className={classes["cart-container"]}> */}
       <Card2>
         <div className={classes["cart-meals"]}>
           {meals.length < 1 && (
@@ -133,7 +124,9 @@ const ShowCart = () => {
               <button
                 className={classes["btn"]}
                 type="button"
-                onClick={handleCheckout}
+                onClick={() => {
+                  navigate("/foodDetail/ShowCart/PayementDetails");
+                }}
               >
                 Process to Checkout
               </button>

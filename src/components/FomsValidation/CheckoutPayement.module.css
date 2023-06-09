@@ -1,0 +1,14 @@
+.main-container {
+  padding: 2rem 3rem;
+}
+
+.container {
+  display: flex;
+}
+
+.meal {
+  border-bottom: 1px solid green;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}

@@ -8,6 +8,8 @@ import FoodDetail from "./components/Meals/MealItem/MealDetail";
 import { Toaster } from "react-hot-toast";
 import CartProvider from "./store/CartProvider";
 import ShowCart from "./components/Meals/MealItem/ShowCartDetail";
+import CheckoutPayement from "./components/FomsValidation/CheckoutPayement";
+// import PaymentForm from "./components/FomsValidation/Payementform";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,26 @@ const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/foodDetail/ShowCart/PayementDetails",
+    element: (
+      <CartProvider>
+        <Toaster />
+        <CheckoutPayement />
+      </CartProvider>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  // {
+  //   path: "/foodDetail/ShowCart/PayementDetails/payementForm",
+  //   element: (
+  //     <CartProvider>
+  //       <Toaster />
+  //       <PaymentForm />
+  //     </CartProvider>
+  //   ),
+  //   errorElement: <ErrorPage />,
+  // },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
