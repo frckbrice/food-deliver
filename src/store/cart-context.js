@@ -1,10 +1,10 @@
 import React from "react";
 const CartContext = React.createContext({
-  items: [],
+  meals: [],
   totalAmount: 0,
   addItem: (item) => {},
   removeItem: (id) => {},
-  deleteItem:  (id) => {},
+  deleteItem: (id) => {},
   clearall: () => {},
 });
 

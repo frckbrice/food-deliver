@@ -1,6 +1,6 @@
 import classes from "./MealItem.module.css";
 import MealItemForm from "./MealItemForm";
-import { useCallback, useContext, memo } from "react";
+import { useContext, memo, useCallback } from "react";
 import CartContext from "../../../store/cart-context";
 import { Link } from "react-router-dom";
 
@@ -9,15 +9,17 @@ const MealItem = (props) => {
 
   const price = `$${props.price.toFixed(2)}`;
 
-  const addToCartHandler = (quantity) => {
+  const addToCartHandler = useCallback(
+    (quantity) => {
       cartCtx.addItem({
         id: props.id,
         name: props.name,
         quantity: quantity,
         price: props.price,
       });
-    }
-   
+    },
+    [props.name, props.price, props.id, cartCtx]
+  );
 
   return (
     <div className={classes.meal}>

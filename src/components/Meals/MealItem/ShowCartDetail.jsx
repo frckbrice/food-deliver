@@ -1,13 +1,15 @@
 import React, { useRef, useContext } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { TiShoppingCart } from "react-icons/ti";
+// import { TiShoppingCart } from "react-icons/ti";
 import { HiOutlineTrash } from "react-icons/hi";
 import toast from "react-hot-toast";
 // import { Link } from "react-router-dom";
 import CartContext from "../../../store/cart-context";
-import './ShowCartDetail.module.css'
-import Header from "../../Layout/Header";
-import './ShowCartDetail.module.css'
+import classes from "./ShowCartDetail.module.css";
+import HeaderFoodDetail from "../../Layout/HeaderFoodDetail";
+import "./ShowCartDetail.module.css";
+import Emptyplate from "../../../assests/emptyplate.png";
+import Card2 from "../../UI/Card2";
 
 const ShowCart = () => {
   toast.success("This is the content of your cart content!");
@@ -16,102 +18,91 @@ const ShowCart = () => {
 
   const cartCtx = useContext(CartContext);
 
-  const { totalAmount, items, removeItem, deleteItem, addItem } = cartCtx;
+  const { totalAmount, meals, removeItem, deleteItem, addItem } = cartCtx;
 
   // console.log(incQty)
 
-  // const { totalAmount, items } = JSON.parse(
-  //   localStorage.getItem("updatedItems")
+  // const { totalAmount, meals } = JSON.parse(
+  //   localStorage.getItem("updatedmeals")
   // );
-  // console.log(items);
+  // console.log(meals);
 
   // const [quantity, setQuantity] = useState();
 
   const handleCheckout = () => {};
 
   return (
-    <div className="cart-wrapper" ref={cartRef}>
-      <Header />
-      {totalAmount ? <h2 className="empty-card">Empty Cart</h2> : ""}
-      <div className="cart-container">
-        <div className="cart-items">
-          {items.length < 1 && (
-            <div className="empty-cart">
-              <TiShoppingCart size={300} />
-              <h1 className="text-3xl" style={{ fontSize: "20" }}>
-                Your shopping bag is empty
+    <div className={classes["cart-wrapper"]} ref={cartRef}>
+      <HeaderFoodDetail />
+
+      {/* <div className={classes["cart-container"]}> */}
+      <Card2>
+        <div className={classes["cart-meals"]}>
+          {meals.length < 1 && (
+            <div className={classes["empty-cart"]}>
+              <img src={Emptyplate} alt="" className={classes.emptyplate} />
+              <h1 className="text-empty-cart" style={{ fontSize: "20" }}>
+                Oops! <br /> No Food ordered.
               </h1>
             </div>
           )}
-
-          {items.length >= 1 &&
-            items.map((item) => (
-              <div key={item.id} className="item-card">
-                <div className="div2-image">
+          {meals.length >= 1 &&
+            meals.map((item) => (
+              <div key={item.id} className={classes["item-card"]}>
+                <div className={classes["div2-image"]}>
                   <img
                     src={item.pict}
                     alt={item.name}
-                    className="food-image2"
+                    className={classes["food-image2"]}
                   />
                 </div>
-                <div className="item-details">
-                  <div className="name-and-remove">
-                    <div
-                      className="flex mb-2"
-                      style={{ display: "flex", marginBottom: "20" }}
-                    >
-                      <h3
-                        className="mr-5 text-3xl"
-                        style={{ marginRight: "50", fontSize: "20" }}
-                      >
-                        {item.name}
-                      </h3>
+
+                <div className={classes["item-details"]}>
+                  <div className={classes["name-and-trash"]}>
+                    <h3>{item.name}</h3>
+                    <p>
                       <button
-                        type="buttin"
+                        type="button"
                         onClick={() => deleteItem(item.id)}
-                        className="remove-item ml-12 text-red text-2xl"
+                        className={classes["remove-item"]}
                       >
-                        <HiOutlineTrash size={28} />
+                        <HiOutlineTrash size={50} />
                       </button>
-                    </div>
-                    <div className="nutrients">
-                      <p>Calories &nbsp;: &nbsp;130 kcal</p>
-                      <p>Carbohydrate&nbsp; : &nbsp;28.7 grams (g)</p>
-                      <p>Protein &nbsp;: &nbsp;2.36 g</p>
-                      <p>Fat&nbsp; :&nbsp; 0.19 g</p>
-                    </div>
-                    <div className="deliv-est">
-                      <p className="delivery-est">Delivery Estimation :</p>
-                      <p className="delivery-days">
-                        {" "}
-                        Within the next{" "}
-                        <strong className="text-green">
-                          &nbsp;&nbsp;30&nbsp;&nbsp;
-                        </strong>{" "}
-                        Minutes
-                      </p>
-                    </div>
+                    </p>
                   </div>
-                  <div className="price-and-qty">
-                    <div className="pandq">
-                      <div>
-                        <span className="price mr-5 border border-cta px-5 py-2">
-                          ${(item.price * item.amount).toFixed(2)}
-                        </span>
-                      </div>
-                      <div className="flex">
-                        <span
-                          className="minus"
-                          onClick={() => removeItem(item.id)}
-                        >
-                          <AiOutlineMinus />
-                        </span>
-                        <span className="num">{item.amount} &nbsp;&nbsp;</span>
-                        <span className="plus" onClick={() => addItem({...item, quantity:1}) }>
-                          <AiOutlinePlus />
-                        </span>
-                      </div>
-                    </div>
+
+                  <div className={classes["deliv-est"]}>
+                    <p className={classes["delivery-est"]}>
+                      Delivery Estimation :{/* </p> */}
+                      {/* <p className={classes["delivery-day"]}> */} From{" "}
+                      <strong className={classes["text-green"]}>
+                        &nbsp;&nbsp;30 &nbsp; Minutes to 1 hour
+                      </strong>{" "}
+                    </p>
+                  </div>
+
+                  <div className={classes["price"]}>
+                    <span>${(item.price * item.quantity).toFixed(2)}</span>
+                  </div>
+
+                  <div className={classes["flex"]}>
+                    <span
+                      className={classes.minus}
+                      onClick={() => removeItem(item.id)}
+                    >
+                      <AiOutlineMinus />
+                      Remove
+                    </span>
+                    <span className={classes["num"]}>
+                      {item.quantity} &nbsp;&nbsp;
+                    </span>
+                    <span
+                      className={classes["plus"]}
+                      onClick={() => addItem({ ...item, quantity: 1 })}
+                    >
+                      <AiOutlinePlus />
+                      Add
+                    </span>
                   </div>
                 </div>
               </div>
@@ -120,27 +111,37 @@ const ShowCart = () => {
 
         {/* bg-ctatransparent */}
 
-        {items.length >= 1 && (
-          <div className="order-summary">
-            <h3 className="title">Order Summary</h3>
-            <div className="qty flex">
-              <p>Quantity: &nbsp;&nbsp; </p>
-              <span>{items.length} &nbsp;&nbsp; Product(s)</span>
+        {meals.length >= 1 && (
+          <div className={classes["order-summary"]}>
+            <h3 className={classes["title"]}>Order Summary</h3>
+            <div className={classes["qty"]}>
+              <p>
+                Quantity: &nbsp;&nbsp;
+                <strong className={classes["text-green"]}>
+                  {meals.length} &nbsp;&nbsp; Product(s)
+                </strong>{" "}
+              </p>
             </div>
-            <div className="subtotal flex">
-              <p>Sub Total : &nbsp;&nbsp;</p>
-              <span>${totalAmount.toFixed(2)}</span>
+            <div className={classes["subtotal"]}>
+              Sub Total : &nbsp;&nbsp;{" "}
+              <span className={classes["text-green"]}>
+                ${totalAmount.toFixed(2)}
+              </span>
             </div>
-            <div>
+            <div className={classes.divbtn}>
               {/* <Link to="foodDetails/:foodId/showCart/checkoutPayement"> */}
-              <button className="btn" type="button" onClick={handleCheckout}>
+              <button
+                className={classes["btn"]}
+                type="button"
+                onClick={handleCheckout}
+              >
                 Process to Checkout
               </button>
               {/* </Link> */}
             </div>
           </div>
         )}
-      </div>
+      </Card2>
     </div>
   );
 };

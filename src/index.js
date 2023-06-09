@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "foodDetails/showCart",
+    path: "/foodDetail/ShowCart",
     element: (
       <CartProvider>
         <Toaster />

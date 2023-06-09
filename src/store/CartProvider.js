@@ -1,83 +1,90 @@
 import CartContext from "./cart-context.js";
 import { useReducer } from "react";
+import { set, DeleteMeal } from "./functions.jsx";
+import PropTypes from "prop-types";
 
 const defaultCartState = {
-  items: [],
+  meals: [],
   totalAmount: 0,
 };
 
 const cartReducer = (state, action) => {
+  console.log('before add',state, action);
+
   if (action.type === "ADD") {
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.quantity;
 
-    const existingCartItemIndex = state.items.findIndex(
+    const existingCartItemIndex = state.meals.findIndex(
       (item) => item.id === action.item.id
     );
-    const existingCartItem = state.items[existingCartItemIndex];
-    let updatedItems;
+    const existingCartItem = state.meals[existingCartItemIndex];
+    let updatedMeals;
 
     if (existingCartItem) {
       const updatedItem = {
         ...existingCartItem,
         quantity: existingCartItem.quantity + action.item.quantity,
       };
-      updatedItems = [...state.items];
-      updatedItems[existingCartItemIndex] = updatedItem;
+      updatedMeals = [...state.meals];
+      updatedMeals[existingCartItemIndex] = updatedItem;
     } else {
-      updatedItems = state.items.concat(action.item);
+      updatedMeals = state.meals.concat(action.item);
     }
 
-    return {
-      items: updatedItems,
+    const cart = {
+      meals: updatedMeals,
       totalAmount: updatedTotalAmount,
     };
+
+    set("meals", cart);
+
+    return cart;
   }
 
   if (action.type === "REMOVE") {
-    const existingCartItemIndex = state.items.findIndex(
+    const existingCartItemIndex = state.meals.findIndex(
       (item) => item.id === action.id
     );
-    const existingItem = state.items[existingCartItemIndex];
+    const existingItem = state.meals[existingCartItemIndex];
     const updatedTotalAmount = state.totalAmount - existingItem.price;
-    let updatedItems;
+    let updatedMeals;
     if (existingItem.quantity === 1) {
-      updatedItems = state.items.filter((item) => item.id !== action.id);
+      updatedMeals = state.meals.filter((item) => item.id !== action.id);
     } else {
       const updatedItem = {
         ...existingItem,
         quantity: existingItem.quantity - 1,
       };
-      updatedItems = [...state.items];
-      updatedItems[existingCartItemIndex] = updatedItem;
+      updatedMeals = [...state.meals];
+      updatedMeals[existingCartItemIndex] = updatedItem;
     }
 
-    return {
-      items: updatedItems,
+    const cart = {
+      meals: updatedMeals,
       totalAmount: updatedTotalAmount,
     };
+
+     set("meals", cart);
+
+    return cart;
   }
 
   if (action.type === "DELETE") {
-    let updatedItems = state.items.filter((item) => item.id !== action.id);
-    const existingCartItemIndex = state.items.findIndex(
-      (item) => item.id === action.id
-    );
-    const existingItem = state.items[existingCartItemIndex];
-    const updatedTotalAmount =
-      state.totalAmount - existingItem.price * existingItem.quantity;
+    const isDeleted = DeleteMeal(action.id);
 
-    return {
-      items: updatedItems,
-      totalAmount: updatedTotalAmount,
-    };
+    return isDeleted;
   }
 
   if (action.type === "CLEARALL") {
-    return {
-      items: [],
+    const cart = {
+      meals: [],
       totalAmount: 0,
     };
+
+     set("meals", cart);
+
+    return cart;
   }
 
   return defaultCartState;
@@ -103,23 +110,43 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: "DELETE", id: id });
   };
 
-  const clearAllItemsFromCartHandler = () => {
+  const clearAllmealsFromCartHandler = () => {
     dispatchCartAction({ type: "CLEARALL" });
   };
 
   const cartContext = {
-    items: cartState.items,
+    meals: cartState.meals,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
     deleteItem: deleteItemFromCartHandler,
-    clearall: clearAllItemsFromCartHandler,
+    clearall: clearAllmealsFromCartHandler,
   };
   return (
     <CartContext.Provider value={cartContext}>
       {props.children}
     </CartContext.Provider>
   );
+};
+
+CartProvider.propTypes = {
+  dispatchCartAction: PropTypes.func,
+  cartReducer: PropTypes.func,
+  item: PropTypes.object,
+  totalAmount: PropTypes.number,
+  existingCartItem: PropTypes.object,
+  existingCartItemIndex: PropTypes.number,
+  updatedItem: PropTypes.object,
+  updatedMeals: PropTypes.arrayOf(),
+  addItemToCartHandler: PropTypes.func,
+  removeItem: PropTypes.func,
+  addItem: PropTypes.func,
+  deleteMeal: PropTypes.func,
+  deleteItem: PropTypes.func,
+  clearall: PropTypes.func,
+  removeItemFromCartHandler: PropTypes.func,
+  deleteItemFromCartHandler: PropTypes.func,
+  clearAllmealsFromCartHandler: PropTypes.func,
 };
 
 export default CartProvider;

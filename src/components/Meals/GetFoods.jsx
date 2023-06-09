@@ -242,8 +242,6 @@ const foodInStock = [
 ];
 
 function getfoodInStock(id) {
-  console.log("in getfood the id is", id);
-
   let productData = foodInStock.find((product) => product.id === id);
 
   if (productData === undefined) {
