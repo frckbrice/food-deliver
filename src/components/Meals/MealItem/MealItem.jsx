@@ -32,7 +32,7 @@ const MealItem = (props) => {
             <span className={classes.span}>{props.name}</span> <br /> <br />{" "}
             <br /> <br />
             <em>
-              <strong className="text-red">Click for More details</strong>
+              <strong>Click for More details</strong>
             </em>
           </div>
         </Link>

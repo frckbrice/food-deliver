@@ -1,9 +1,8 @@
 import classes from "./MealItemForm.module.css";
 import Input from "../../UI/Input";
-import { useRef, useState } from "react";
+import { useRef, useState, memo } from "react";
 import { toast } from "react-hot-toast";
 import { getfoodInStock } from "../GetFoods";
-
 
 const MealItemForm = (props) => {
   const [amountIsValid, setAmountIsValid] = useState(true);
@@ -51,9 +50,8 @@ const MealItemForm = (props) => {
         </button>
         {!amountIsValid && <p>Please enter a valid amount (1-10).</p>}
       </form>
-     
     </>
   );
 };
 
-export default MealItemForm;
+export default memo(MealItemForm);

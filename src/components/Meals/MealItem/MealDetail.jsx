@@ -1,4 +1,4 @@
-import React, { useContext, memo } from "react";
+import React, { useContext, memo, useCallback } from "react";
 import PropTypes from "prop-types";
 import { useParams, useNavigate } from "react-router-dom";
 import { getfoodInStock } from "../GetFoods";
@@ -8,7 +8,6 @@ import { toast } from "react-hot-toast";
 import classes from "./MealDetail.module.css";
 import HeaderFoodDetail from "../../Layout/HeaderFoodDetail";
 import Favorite from "./Favorite";
-import Card2 from "../../UI/Card2";
 import Card from "../../UI/Card";
 
 const FoodDetail = (props) => {
@@ -19,16 +18,19 @@ const FoodDetail = (props) => {
 
   const cartCtx = useContext(CartContext);
 
-  const addToCartHandler = (quantity) => {
-    cartCtx.addItem({
-      id: foodIdMeal.id,
-      name: foodIdMeal.name,
-      quantity: quantity,
-      price: foodIdMeal.price,
-      pict: foodIdMeal.pict,
-    });
-    toast(`Adding ${quantity} ${foodIdMeal.name} in the cart`);
-  };
+  const addToCartHandler = useCallback(
+    (quantity) => {
+      cartCtx.addItem({
+        id: foodIdMeal.id,
+        name: foodIdMeal.name,
+        quantity: quantity,
+        price: foodIdMeal.price,
+        pict: foodIdMeal.pict,
+      });
+      toast(`Adding ${quantity} ${foodIdMeal.name} in the cart`);
+    },
+    [foodIdMeal.name, foodIdMeal.id, foodIdMeal.price, foodIdMeal.pict, cartCtx]
+  );
 
   return (
     <div className={classes["food-details"]}>

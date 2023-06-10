@@ -1,9 +1,7 @@
-import React, { useRef, useContext } from "react";
+import React, { useContext } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-// import { TiShoppingCart } from "react-icons/ti";
 import { HiOutlineTrash } from "react-icons/hi";
 import toast from "react-hot-toast";
-// import { Link } from "react-router-dom";
 import CartContext from "../../../store/cart-context";
 import classes from "./ShowCartDetail.module.css";
 import HeaderFoodDetail from "../../Layout/HeaderFoodDetail";
@@ -17,14 +15,12 @@ const ShowCart = () => {
 
   toast.success("This is the content of your cart content!");
 
-  const cartRef = useRef();
-
   const cartCtx = useContext(CartContext);
 
   const { totalAmount, meals, removeItem, deleteItem, addItem } = cartCtx;
 
   return (
-    <div className={classes["cart-wrapper"]} ref={cartRef}>
+    <div className={classes["cart-wrapper"]}>
       <HeaderFoodDetail />
 
       <Card2>
@@ -64,8 +60,7 @@ const ShowCart = () => {
 
                   <div className={classes["deliv-est"]}>
                     <p className={classes["delivery-est"]}>
-                      Delivery Estimation :{/* </p> */}
-                      {/* <p className={classes["delivery-day"]}> */} From{" "}
+                      Delivery Estimation : <br /> From{" "}
                       <strong className={classes["text-green"]}>
                         &nbsp;&nbsp;30 &nbsp; Minutes to 1 hour
                       </strong>{" "}

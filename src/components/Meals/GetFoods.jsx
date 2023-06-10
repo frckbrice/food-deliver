@@ -202,11 +202,11 @@ const foodInStock = [
       "It is a delicious Nigerian soup prepared with palm fruit, vegetables, beef, and fish, alongside chili pepper and salt seasonings..",
     price: 14.5,
     nutrients: {
-      energy: "65 (kcal)",
+      energy: "41 (kcal)",
       carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
+      proteine: "3.9 (g)",
       fat: "1.2 (g)",
-      water: "10.6 (g)",
+      water: "65.6 (g)",
     },
   },
   {
@@ -216,9 +216,9 @@ const foodInStock = [
     description: "Couscous in the Berber language means rolled or rounded",
     nutrients: {
       energy: "65 (kcal)",
-      carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
-      fat: "1.2 (g)",
+      carbohydrate: "18.9 (g)",
+      proteine: "7.7 (g)",
+      fat: "0.7 (g)",
       water: "10.6 (g)",
     },
 
@@ -232,11 +232,11 @@ const foodInStock = [
       "Senegal’s national dish, thieboudienne, was prepared by cooking rice and fish in a single pot seasoned in tomato sauce.",
     price: 16.99,
     nutrients: {
-      energy: "65 (kcal)",
+      energy: "52 (kcal)",
       carbohydrate: "12.9 (g)",
-      proteine: "2.7 (g)",
+      proteine: "4.7 (g)",
       fat: "1.2 (g)",
-      water: "10.6 (g)",
+      water: "17.6 (g)",
     },
   },
 ];

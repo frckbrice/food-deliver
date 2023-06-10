@@ -13,7 +13,7 @@ body {
   overflow: hidden;
   gap: 5%;
   padding: 12% 5% 7% 9%;
-  width: 100%;
+  width: 90%;
   height: 100%;
   position: relative;
 }
@@ -42,6 +42,8 @@ body {
 .item-card {
   display: flex;
   gap: 5%;
+  border-bottom: 1px solid rgb(17, 227, 17);
+  padding-bottom: 15px;
 }
 
 .text-empty-cart {
@@ -53,11 +55,13 @@ body {
   justify-content: center;
   align-items: flex-start;
   flex: 1;
+  margin-left: 15px;
+  margin-top: 15px;
 }
 
 .food-image2 {
-  width: 20rem;
-  height: 20rem;
+  width: 15rem;
+  height: 15rem;
   border-radius: 50px;
 }
 

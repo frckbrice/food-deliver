@@ -2,19 +2,21 @@ import React, { useContext } from "react";
 import { Formik, Form, useField, Field } from "formik";
 import { PaymentInputsWrapper, usePaymentInputs } from "react-payment-inputs";
 import validationSchema from "./ValidationSchema";
-import { useLocalStorage } from "../../store/useLocalStorage";
+// import { useLocalStorage } from "../../store/useLocalStorage";
 import classes from "./CheckoutPayement.module.css";
 import Card2 from "../UI/Card2";
 import CartContext from "../../store/cart-context";
+import HeaderWithoutBtn from "../Layout/HeaderWithoutBtn";
+import { Set as set } from "../../store/functions";
 
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
-      <input className="text-input" {...field} {...props} />
+      <input {...field} {...props} />
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <div className={classes.error}>{meta.error}</div>
       ) : null}
     </>
   );
@@ -24,12 +26,12 @@ const MyCheckbox = ({ children, ...props }) => {
   const [field, meta] = useField({ ...props, type: "checkbox" });
   return (
     <div>
-      <label className="checkbox-input">
+      <label className={["checkbox-input"]}>
         <input type="checkbox" {...field} {...props} />
         {children}
       </label>
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <div className={classes.error}>{meta.error}</div>
       ) : null}
     </div>
   );
@@ -45,7 +47,7 @@ const MySelect = ({ label, ...props }) => {
       <select {...field} {...props} />
 
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <div className={classes.error}>{meta.error}</div>
       ) : null}
     </div>
   );
@@ -70,16 +72,14 @@ const initialValues = {
   name: "",
   email: "",
   quater: "",
-  passWord: "",
   cardNumber: "",
   expiryDate: "",
   phoneNumber: "",
   acceptedTerms: false,
 };
 
-// And now we can use these
 const CheckoutPayement = () => {
-  const { setUserValues } = useLocalStorage();
+  // const { setUserValues } = useLocalStorage();
 
   const { meals, totalAmount } = useContext(CartContext);
 
@@ -108,127 +108,135 @@ const CheckoutPayement = () => {
 
   const storeUserData = (values, { setSubmitting }) => {
     setTimeout(() => {
-      setUserValues(values);
+      // setUserValues(values);
+      set(`${values.name}`, values);
       setSubmitting(false);
+      Formik.resetForm();
     }, 400);
+    console.log(values);
   };
 
   return (
-    <Card2>
+    <>
+      <HeaderWithoutBtn />
       <main className={classes["main-container"]}>
-        <h1>Checkout Process</h1>
-        <div className={classes.container}>
-          <div>
-            {meals.length >= 1 &&
-              meals.map((meal) => (
-                <div key={meal.id} className={classes.meal}>
-                  <span>{meal.name}</span>{" "}
-                  <span>{(meal.quantity * meal.price).toFixed(2)}</span>
+        <Card2>
+          <h1>Checkout Process</h1>
+          <div className={classes.container}>
+            <div>
+              {" "}
+              <h1>Food Ordered:</h1>
+              {meals.length >= 1 &&
+                meals.map((meal) => (
+                  <div key={meal.id} className={classes.meal}>
+                    <span>{meal.name}</span>{" "}
+                    <span>{(meal.quantity * meal.price).toFixed(2)}</span>
+                  </div>
+                ))}
+              <h1>Total Amount: {totalAmount}</h1>
+            </div>
+
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={storeUserData}
+              validate={validate}
+            >
+              <Form className={classes.form}>
+                <MyTextInput
+                  id="name"
+                  label="Full Name"
+                  name="name"
+                  type="text"
+                  placeholder="full name"
+                  className={classes.input}
+                />
+                <br />
+                <MyTextInput
+                  label="Email Address"
+                  name="email"
+                  type="email"
+                  placeholder="example@hotmail.com"
+                  className={classes.input}
+                />
+                <br />
+
+                <br />
+                <MyTextInput
+                  label="Phone Number"
+                  name="phoneNumber"
+                  type="text"
+                  placeholder="+237"
+                  className={classes.input}
+                />
+                <br />
+                <MySelect
+                  label="Quater"
+                  name="quater"
+                  className={classes.select}
+                >
+                  <option value="">Select a quater</option>
+
+                  <option value="mendong">Mendong</option>
+
+                  <option value="biyemeassi">BiyemeAssi</option>
+
+                  <option value="jouvence">Jouvence</option>
+
+                  <option value="other">Other</option>
+                </MySelect>
+
+                <MyCheckbox name="acceptedTerms" className={classes.checkb}>
+                  I accept the terms and conditions
+                </MyCheckbox>
+
+                <div className={classes.card}>
+                  <label htmlFor="payementCard">Enter Card Informations</label>
+                  <br />
+                  <PaymentInputsWrapper {...wrapperProps}>
+                    <svg {...getCardImageProps({ images })} />
+                    <Field name="cardNumber" className={classes.cardNumber}>
+                      {({ field }) => (
+                        <input
+                          {...getCardNumberProps({
+                            onBlur: field.onBlur,
+                            onChange: field.onChange,
+                          })}
+                        />
+                      )}
+                    </Field>
+                    <Field name="expiryDate" className={classes.expiryDate}>
+                      {({ field }) => (
+                        <input
+                          {...getExpiryDateProps({
+                            onBlur: field.onBlur,
+                            onChange: field.onChange,
+                          })}
+                        />
+                      )}
+                    </Field>
+                    <Field name="cvc" className={classes.cvc}>
+                      {({ field }) => (
+                        <input
+                          {...getCVCProps({
+                            onBlur: field.onBlur,
+                            onChange: field.onChange,
+                          })}
+                        />
+                      )}
+                    </Field>
+                  </PaymentInputsWrapper>
                 </div>
-              ))}
-            <h1>Total Amount: {totalAmount}</h1>
+
+                <button type="submit" className={classes.btn}>
+                  Submit
+                </button>
+              </Form>
+            </Formik>
           </div>
-
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={storeUserData}
-            validate={validate}
-          >
-            <Form className={classes.form}>
-              <MyTextInput
-                id="name"
-                label="Full Name"
-                name="name"
-                type="text"
-                placeholder="maebrie"
-                className={classes.input}
-              />
-              <br />
-              <MyTextInput
-                label="Email Address"
-                name="email"
-                type="email"
-                placeholder="example@hotmail.com"
-                className={classes.input}
-              />
-              <br />
-              <MyTextInput
-                label="PassWord"
-                name="passWord"
-                type="text"
-                placeholder="avom"
-                className={classes.input}
-              />
-              <br />
-              <MyTextInput
-                label="Phone Number"
-                name="phoneNumber"
-                type="text"
-                placeholder="Brice"
-                className={classes.input}
-              />
-              <br />
-              <MySelect label="Quater" name="quater" className={classes.select}>
-                <option value="">Select a quater</option>
-
-                <option value="mendong">Mendong</option>
-
-                <option value="biyemeassi">BiyemeAssi</option>
-
-                <option value="jouvence">Jouvence</option>
-
-                <option value="other">Other</option>
-              </MySelect>
-
-              <MyCheckbox name="acceptedTerms" className={classes.checkb}>
-                I accept the terms and conditions
-              </MyCheckbox>
-
-              <div>
-                <PaymentInputsWrapper {...wrapperProps}>
-                  <svg {...getCardImageProps({ images })} />
-                  <Field name="cardNumber">
-                    {({ field }) => (
-                      <input
-                        {...getCardNumberProps({
-                          onBlur: field.onBlur,
-                          onChange: field.onChange,
-                        })}
-                      />
-                    )}
-                  </Field>
-                  <Field name="expiryDate">
-                    {({ field }) => (
-                      <input
-                        {...getExpiryDateProps({
-                          onBlur: field.onBlur,
-                          onChange: field.onChange,
-                        })}
-                      />
-                    )}
-                  </Field>
-                  <Field name="cvc">
-                    {({ field }) => (
-                      <input
-                        {...getCVCProps({
-                          onBlur: field.onBlur,
-                          onChange: field.onChange,
-                        })}
-                      />
-                    )}
-                  </Field>
-                </PaymentInputsWrapper>
-              </div>
-
-              <button type="submit" className="btn">
-                Submit
-              </button>
-            </Form>
-          </Formik>
-        </div>
+        </Card2>
       </main>
-    </Card2>
+    </>
   );
 };
 

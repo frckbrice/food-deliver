@@ -6,6 +6,7 @@ export default yup.object().shape({
   phoneNumber: yup
     .number()
     .required("*")
+    .max(9, "the phone number must contain 9 digits")
     .typeError("kindly add valid phone number."),
   acceptedTerms: yup
     .boolean()
@@ -14,5 +15,20 @@ export default yup.object().shape({
   quater: yup
     .string()
     .required("*")
-    .typeError("Kindly add the quater. It's necessary for delivering."),
+    .oneOf(
+      ["mendong", "biyemeassi", "jouvence", "other"],
+      "Invalid quater! Kindly add the quater; It's necessary for delivering."
+    ),
+  role: yup
+    .string()
+    .required("*")
+    .oneOf(["admin", "guestUser"], "Invalid role! Choose your role;"),
+  password: yup
+    .string()
+    .required("*")
+    .min(8, "the password must contain at least 8 characters"),
+  passwordConfirmation: yup
+    .string()
+    .required("*")
+    .oneOf([yup.ref("password")], "the passwords are not the same"),
 });

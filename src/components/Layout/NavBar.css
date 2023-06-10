@@ -1,0 +1,63 @@
+/*==========================
+Sidebar navigation
+========================*/
+.navbar {
+  position: relative;
+}
+button {
+  cursor: pointer;
+  border: none;
+  font-size: 40px;
+  background-color: #5bd736;
+  border-radius: 15px;
+}
+.navbar .toggle {
+  position: fixed;
+  right: 100px;
+  top: 30px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.menu-nav {
+  list-style: none;
+  position: absolute;
+  background: #5bd736;
+  left: 0;
+  top: 50px;
+  /* width: 0; */
+  overflow: hidden;
+  max-width: 290px;
+  z-index: 9;
+  font-size: 16px;
+  box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%),
+    0 4px 6px -2px rgb(71 63 79 / 16%);
+  transform: translateX(-80px);
+  transition: transform ease-in-out 0.2s;
+  /* transition: width ease 0.2s; */
+}
+.menu-nav.show-menu {
+  width: 100%;
+  transform: translateX(10px);
+}
+.menu-nav li a,
+.menu-nav li span {
+  display: block;
+  padding: 1rem;
+}
+.log-in {
+  color: #777;
+  border-top: 1px solid #efecec;
+  margin-top: 15px;
+  font-size: 15px;
+}
+/* logout */
+.logout {
+  position: absolute;
+  right: 30px;
+  top: 40px;
+  display: flex;
+  gap: 2rem;
+  font-size: 20px;
+  color: #005bb3;
+}

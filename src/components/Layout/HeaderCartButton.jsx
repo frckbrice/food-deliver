@@ -1,9 +1,9 @@
 import CartIcon from "../Cart/CartIcon";
 import classes from "./HeaderCartButton.module.css";
 import CartContext from "../../store/cart-context";
-import { useContext, useEffect, useState, memo, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GetMeals } from "../../store/functions";
+import { GetMeals as getMeals } from "../../store/functions";
 
 const HeaderCartButton = (props) => {
   const navigate = useNavigate();
@@ -12,13 +12,10 @@ const HeaderCartButton = (props) => {
   const cartCtx = useContext(CartContext);
 
   const { meals } = cartCtx;
-  // const { meals } = GetMeals();
+  // const { meals } = getMeals("meals");
+  // const { meals } = getMeals();
 
   console.log("in header button meals is", meals);
-
-  // const spanref = useRef();
-
-  // console.log("in header button ref value is", spanref.current.value);
 
   const numberOfCartmeals = meals.reduce((curNumber, item) => {
     return curNumber + item.quantity;
@@ -29,8 +26,6 @@ const HeaderCartButton = (props) => {
   }`;
 
   useEffect(() => {
-    // spanref.current.value = numberOfCartmeals;
-
     if (meals.length === 0) {
       return;
     }
@@ -59,4 +54,4 @@ const HeaderCartButton = (props) => {
   );
 };
 
-export default memo(HeaderCartButton);
+export default HeaderCartButton;

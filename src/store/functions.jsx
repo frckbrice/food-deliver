@@ -4,20 +4,20 @@ import sortBy from "sort-by";
 import { useLocalStorage } from "./useLocalStorage";
 
 export async function GetMeals(query) {
-  console.log("in function module, getting data from localforage");
-  useLocalStorage();
+  console.log("in function module, getting data from localstorage");
+
   await fakeNetwork(`GetMeals:${query}`);
- let { meals, setMeals } = useLocalStorage("meals", {});
+  // let { meals, setMeals } = useLocalStorage(`${query}`, {}); //wander how it's not possible!!!!
+  let { meals, setMeals } = useLocalStorage("meals", {});
   if (!meals) meals = [];
   if (query) {
     meals = matchSorter(meals, query, { keys: ["name"] });
   }
-  const newMeals = meals.sort(sortBy("last", "createdAt"));
-  return { newMeals, setMeals };
+  meals = meals.sort(sortBy("last", "createdAt"));
+  return { meals, setMeals };
 }
 
 export async function CreateMeal() {
-  
   await fakeNetwork();
   let id = Math.random().toString(36).substring(2, 9);
   let meal = { id, createdAt: Date.now() };
@@ -36,7 +36,7 @@ export async function GetMeal(id) {
 
 export async function UpdateMeal(id, updates) {
   await fakeNetwork();
- let { meals, setMeals } = useLocalStorage("meals", {});
+  let { meals, setMeals } = useLocalStorage("meals", {});
   let meal = meals.find((meal) => meal.id === id);
   if (!meal) throw new Error("No meal found for", id);
   Object.assign(meal, updates);
@@ -45,7 +45,7 @@ export async function UpdateMeal(id, updates) {
 }
 
 export async function DeleteMeal(id) {
- let { meals, setMeals } = useLocalStorage("meals", {});
+  let { meals, setMeals } = useLocalStorage("meals", {});
   let index = meals.findIndex((meal) => meal.id === id);
   if (index > -1) {
     meals.splice(index, 1);
@@ -55,9 +55,9 @@ export async function DeleteMeal(id) {
   return false;
 }
 
-export function set(key, value) {
-  console.log("in function module, successfull saving");
-  return localStorage.setItem("key", JSON.stringify(value));
+export function Set(key, value) {
+  console.log("in function module, successfull saving on key: " + key);
+  return localStorage.setItem(`${key}`, JSON.stringify(value));
 }
 
 // fake a cache so we don't slow down stuff we've already seen

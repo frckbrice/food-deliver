@@ -1,6 +1,6 @@
 import CartContext from "./cart-context.js";
 import { useReducer } from "react";
-import { set, DeleteMeal } from "./functions.jsx";
+import { Set as set, DeleteMeal } from "./functions.jsx";
 import PropTypes from "prop-types";
 
 const defaultCartState = {
@@ -9,7 +9,7 @@ const defaultCartState = {
 };
 
 const cartReducer = (state, action) => {
-  console.log('before add',state, action);
+  console.log("before add", state, action);
 
   if (action.type === "ADD") {
     const updatedTotalAmount =
@@ -65,7 +65,7 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
     };
 
-     set("meals", cart);
+    set("meals", cart);
 
     return cart;
   }
@@ -82,7 +82,7 @@ const cartReducer = (state, action) => {
       totalAmount: 0,
     };
 
-     set("meals", cart);
+    set("meals", cart);
 
     return cart;
   }
