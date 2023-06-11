@@ -7,13 +7,13 @@ import "./NavBar.css";
 // ...
 const Navbar = () => {
   //set to false bcause, want to hide initially
-  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(true);
 
   //to listen to event close out of the widget we make use of these hooks
   const ref = useRef(); // to target the whole navbar
   useEffect(() => {
     const handler = (event) => {
-      if (navbarOpen && ref.current && !ref.current.contains(event.target)) {
+      if (!navbarOpen && ref.current && !ref.current.contains(event.target)) {
         setNavbarOpen(false);
       }
     };

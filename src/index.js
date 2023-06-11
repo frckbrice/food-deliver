@@ -9,9 +9,19 @@ import { Toaster } from "react-hot-toast";
 import CartProvider from "./store/CartProvider";
 import ShowCart from "./components/Meals/MealItem/ShowCartDetail";
 import CheckoutPayement from "./components/FomsValidation/CheckoutPayement";
-import AdminPage from "./components/Admin/AdminPage";
+import AdminPage, {
+  loader as AdminLoadMeals,
+  action as AdminCreateMeal,
+} from "./components/Admin/AdminPage";
 import SignIn from "./components/FomsValidation/Login/SignIn";
 import SignUp from "./components/FomsValidation/Login/SignUp";
+import Food, { loader as sampleFoodLoader } from "./components/Admin/Meal";
+import Index from "./components/Admin/IndexRoute";
+import EditMeal, {
+  action as EditFoodAction,
+} from "./components/Admin/editMeal";
+import { action as deleteAction } from "./components/Admin/deleteMeal";
+import { action as foodFavoriteAction } from "./components/Admin/Favorite";
 
 const router = createBrowserRouter([
   {
@@ -70,14 +80,48 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/Login/AdminPage",
+    path: "/Login/Adminpage",
     element: (
       <CartProvider>
         <Toaster />
         <AdminPage />
       </CartProvider>
     ),
+    loader: AdminLoadMeals,
+    action: AdminCreateMeal,
     errorElement: <ErrorPage />,
+
+    children: [
+      {
+        errorElement: <ErrorPage />,
+        children: [
+          { index: true, element: <Index /> },
+          {
+            path: "/Login/Adminpage/meals/:mealId",
+            element: <Food />,
+            loader: sampleFoodLoader,
+            // this action is for the fetcher to make gain of time from network delays.
+            action: foodFavoriteAction,
+          },
+          {
+            path: "/Login/Adminpage/meals/:mealId/edit",
+            element: <EditMeal />,
+            loader: sampleFoodLoader,
+            action: EditFoodAction,
+          },
+          {
+            path: "/Login/Adminpage/meals/:mealId/destroy",
+            action: deleteAction,
+            errorElement: (
+              <div>
+                Oops! There was an error. <br />
+                This meal can't be delete cause of network issues
+              </div>
+            ),
+          },
+        ],
+      },
+    ],
   },
 ]);
 

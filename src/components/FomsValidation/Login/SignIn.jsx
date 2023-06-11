@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Formik, Form, useField } from "formik";
-import validationSchema from "../ValidationSchema";
+import validationSchema from "./SignInValidationSchema";
 import classes from "../CheckoutPayement.module.css";
 import Card2 from "../../UI/Card2";
 import HeaderWithoutBtn from "../../Layout/HeaderWithoutBtn";
@@ -46,7 +46,6 @@ const initialValues = {
 };
 
 const SignIn = () => {
-  const [adminPage, setAdminpage] = useState(true);
   const { lsData, setLsData } = useLocalStorage("email", {});
   const [flag, setFlag] = useState(false);
 
@@ -58,7 +57,6 @@ const SignIn = () => {
       ) {
         setFlag(true);
       } else {
-        setAdminpage(!adminPage);
         setFlag(false);
       }
       setLsData(values);
@@ -66,23 +64,21 @@ const SignIn = () => {
       Formik.resetForm();
       console.log("Saved in Local Storage");
     }, 400);
-
-    setAdminpage(!adminPage);
-    toast.success("Login Successfull");
+    toast.success("Login Successfull Mr. Admin");
   };
 
   return (
     <>
       <HeaderWithoutBtn />
-      <main className={classes["main-container"]}>
+      <main className={classes["main-containerSignIn"]}>
         <Card2>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={CheckLogin}
           >
-            <Form className={classes.form}>
-              <h1> Login</h1>
+            <Form className={classes.formSignIn}>
+              <h1> Login Page</h1>
 
               <MyTextInput
                 label="Email Address"
@@ -105,11 +101,12 @@ const SignIn = () => {
                 type="password"
                 placeholder="password"
                 className={classes.input}
+                value={undefined}
               />
 
               <br />
-              <Link to="/Login/AdminPage">
-                <button type="submit" className={classes.btn}>
+              <Link to="/Login/Adminpage">
+                <button type="submit" className={classes.btonSignIn}>
                   Submit
                 </button>
               </Link>

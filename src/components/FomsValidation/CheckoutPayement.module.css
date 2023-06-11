@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Philosopher&family=Kalam:wght@400;700&family=Permanent+Marker&family=Satisfy&display=swap");
 
+body {
+  position: relative;
+}
+
 .main-container {
   padding: 0 1rem 5rem 15%;
   color: aliceblue;
@@ -9,10 +13,28 @@
     sans-serif;
 }
 
+.main-containerSignIn {
+  padding: 0 1rem 5rem 15%;
+  color: aliceblue;
+  width: 60%;
+  /* background-color: blueviolet; */
+  font-family: Philosopher, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto; */
+  position: absolute;
+  top: 30%;
+  left: 18%;
+}
+
 h1 {
   text-align: center;
   font-family: Satisfy, Gill;
   padding: 0 1.5rem;
+  font-size: 40px;
+  margin: auto;
 }
 
 .container {
@@ -35,9 +57,23 @@ h1 {
   flex-direction: column;
   border: solid 1px beige;
   justify-content: center;
-  align-items: center;
   align-items: flex-start;
   gap: 5px;
+}
+
+.formSignIn {
+  color: aliceblue;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border: solid 1px rgb(82, 236, 26);
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  width: 427px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .input {
@@ -56,7 +92,7 @@ h1 {
   color: black;
 }
 
-.btn {
+.bton {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,6 +100,22 @@ h1 {
   font-size: 18px;
   width: 100%;
   margin: auto;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: rgb(15, 227, 37);
+  border-radius: 4px;
+  color: white;
+}
+
+.btonSignIn {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  text-align: center;
+  font-size: 22px;
+  width: 410px;
+  /* margin: auto; */
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -87,12 +139,15 @@ h1 {
 
 .error {
   color: red;
+  background-color: aliceblue;
 }
 
 .cardNumber {
   margin-right: 10px;
 }
 
-.btn-login {
+.btnlogin {
   color: blue;
+  font-size: 14px;
+  padding: 1px 10px;
 }

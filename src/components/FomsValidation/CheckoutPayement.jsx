@@ -160,8 +160,6 @@ const CheckoutPayement = () => {
                   className={classes.input}
                 />
                 <br />
-
-                <br />
                 <MyTextInput
                   label="Phone Number"
                   name="phoneNumber"
@@ -201,6 +199,7 @@ const CheckoutPayement = () => {
                           {...getCardNumberProps({
                             onBlur: field.onBlur,
                             onChange: field.onChange,
+                            maxLength: 20,
                           })}
                         />
                       )}

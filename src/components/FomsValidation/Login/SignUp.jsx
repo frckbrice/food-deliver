@@ -1,5 +1,5 @@
 import { Formik, Form, useField } from "formik";
-import validationSchema from "../ValidationSchema";
+import validationSchema from "./SignUpValidationSchema";
 import classes from "../CheckoutPayement.module.css";
 import Card2 from "../../UI/Card2";
 import HeaderWithoutBtn from "../../Layout/HeaderWithoutBtn";
@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const MyTextInput = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
+  const [field, meta, helpers] = useField(props);
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
@@ -62,15 +62,15 @@ const initialValues = {
 };
 
 const SignUp = () => {
-  const storeUserData = (values, { setSubmitting }) => {
+  const storeUserData = (values, { setSubmitting, resetForm }) => {
     setTimeout(() => {
       set("email", values);
       setSubmitting(false);
-      Formik.resetForm();
       console.log("Saved in Local Storage");
     }, 400);
     console.log(values);
     toast.success("Successfully Registered");
+    resetForm({ values: "" });
   };
 
   return (
@@ -84,7 +84,7 @@ const SignUp = () => {
             onSubmit={storeUserData}
           >
             <Form className={classes.form}>
-              <h1> Register</h1>
+              <h1> Registration Page</h1>
               <MyTextInput
                 id="name"
                 label="Full Name"
@@ -108,6 +108,7 @@ const SignUp = () => {
                 type="text"
                 placeholder="+237"
                 className={classes.input}
+                maxLength={15}
               />
               <br />
               <MySelect label="Role" name="role" className={classes.select}>
@@ -122,6 +123,7 @@ const SignUp = () => {
                 type="password"
                 placeholder="password"
                 className={classes.input}
+                value={undefined}
               />
               <br />
               <MyTextInput
@@ -130,6 +132,7 @@ const SignUp = () => {
                 type="password"
                 placeholder="passwordconfirmation"
                 className={classes.input}
+                value={undefined}
               />
               <br />
 
@@ -137,13 +140,13 @@ const SignUp = () => {
                 I accept the terms and conditions
               </MyCheckbox>
 
-              <button type="submit" className={classes.btn}>
+              <button type="submit" className={classes.bton}>
                 Submit
               </button>
               <p className="forgot-password text-right">
                 Already registered &nbsp;
                 <Link to="/login">
-                  <button className={classes["btn-login"]}>log in</button>
+                  <button className={classes["btnlogin"]}>log in</button>
                 </Link>
                 &nbsp;&nbsp;?
               </p>

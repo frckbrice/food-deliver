@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import mainheaderImage from "../../assests/headerBanner.jpg";
 import classes from "./Header.module.css";
-import HeaderCartButton from "./HeaderCartButton";
 // import { Link } from "react-router-dom";
 import Navbar from "./NavBar";
 
