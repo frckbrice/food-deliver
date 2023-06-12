@@ -35,11 +35,11 @@
 //     description: "Jollof-rice A one-pot dish with rice as the star ingredient",
 //     price: 22.99,
 //     nutrients: {
-//       energy: "65 (kcal)",
-//       carbohydrate: "12.9 (g)",
-//       proteine: "2.7 (g)",
-//       fat: "1.2 (g)",
-//       water: "10.6 (g)",
+//         energy: "65 (kcal)",
+//         carbohydrate: "12.9 (g)",
+//         proteine: "2.7 (g)",
+//         fat: "1.2 (g)",
+//         water: "10.6 (g)",
 //     },
 //   },
 //   {

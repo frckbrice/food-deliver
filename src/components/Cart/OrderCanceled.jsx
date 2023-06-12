@@ -1,15 +1,25 @@
 import { Fragment } from "react";
 import classes from "./Cart.module.css";
 import { useNavigate } from "react-router-dom";
+import { FcCancel } from "react-icons/fc";
+import HeaderWithoutBtn from "../Layout/HeaderWithoutBtn";
 
-const OrderCanceled = (props) => {
+const OrderDelivered = (props) => {
   const navigate = useNavigate();
   return (
-    <Fragment>
-      <section>
-        <h2>Thank you so much for Visiting us!</h2>
-        <p>We really appreciate it. </p>
-        <p>We hope that next time you will get what you need</p>
+    <main id={classes.main}>
+      <HeaderWithoutBtn />
+      <section id={classes.section}>
+        <div className="div-icon">
+          <FcCancel size={100} className="icon text-lime-600" />
+        </div>
+
+        <div>
+          <h1>Sorry for your cancel! </h1>
+          <p className={classes.p}>
+            We hope you will make a payement next time.{" "}
+          </p>
+        </div>
       </section>
       <div className={classes.actions}>
         <button
@@ -21,8 +31,8 @@ const OrderCanceled = (props) => {
           Close
         </button>
       </div>
-    </Fragment>
+    </main>
   );
 };
 
-export default OrderCanceled;
+export default OrderDelivered;

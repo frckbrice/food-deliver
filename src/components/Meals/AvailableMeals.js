@@ -5,12 +5,11 @@ import { useLocalStorage } from "../../store/useLocalStorage";
 
 const AvailableMeals = () => {
   const { lsData } = useLocalStorage("displayList");
-  console.log(lsData);
 
   const mealsList = lsData.map((meal) => (
     <MealItem
       key={meal.id}
-      pict={meal.avatar}
+      avatar={meal.avatar}
       name={meal.name}
       price={meal.price}
       id={meal.id}

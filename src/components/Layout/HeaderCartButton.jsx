@@ -1,25 +1,25 @@
 import { TiShoppingCart } from "react-icons/ti";
 import classes from "./HeaderCartButton.module.css";
 import CartContext from "../../store/cart-context";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, memo } from "react";
 import { useNavigate } from "react-router-dom";
-import { GetMeals as getMeals } from "../../store/functions";
+import { useLocalStorage } from "../../store/useLocalStorage";
 
-const HeaderCartButton = (props) => {
+const HeaderCartButton = memo((props) => {
   const navigate = useNavigate();
 
   const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
   const cartCtx = useContext(CartContext);
 
   const { meals } = cartCtx;
-  // const { meals } = getMeals("meals");
+  // const { meals } = useLocalStorage("meals");
   // const { meals } = getMeals();
-
-  console.log("in header button meals is", meals);
 
   const numberOfCartmeals = meals.reduce((curNumber, item) => {
     return curNumber + item.quantity;
   }, 0);
+
+  console.log("numberOfCartmeals", numberOfCartmeals);
 
   const btnClasses = `${classes.button} ${
     btnIsHighlighted ? classes.bump : ""
@@ -38,7 +38,7 @@ const HeaderCartButton = (props) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [meals, numberOfCartmeals]);
+  }, [meals]);
 
   return (
     <button
@@ -46,12 +46,12 @@ const HeaderCartButton = (props) => {
       onClick={() => navigate(`/foodDetail/ShowCart`)}
     >
       <span className={classes.icon}>
-        <TiShoppingCart />
+        <TiShoppingCart size={30} />
       </span>
       <span>Your Cart</span>
       <span className={classes.badge}>{numberOfCartmeals}</span>
     </button>
   );
-};
+});
 
 export default HeaderCartButton;

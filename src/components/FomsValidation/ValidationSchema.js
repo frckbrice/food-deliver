@@ -1,4 +1,5 @@
 import * as yup from "yup";
+import valid from "card-validator";
 
 const PHONE_NO_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$/g;
 const EMAIL_REG = /\S+@\S+\.\S+/g;
@@ -16,10 +17,6 @@ export default yup.object().shape({
     message: "not valid phone number",
     excludeEmptyString: false,
   }),
-  acceptedTerms: yup
-    .boolean()
-    .required("Required")
-    .oneOf([true], "You must accept the terms and conditions."),
   quater: yup
     .string()
     .required("Required")
@@ -27,13 +24,18 @@ export default yup.object().shape({
       ["mendong", "biyemeassi", "jouvence", "other"],
       "Invalid quater! Kindly add the quater; It's necessary for delivering."
     ),
+  acceptedTerms: yup
+    .boolean()
+    .required("Required")
+    .oneOf([true], "You must accept the terms and conditions."),
+
   cardNumber: yup
     .string()
-    .required("Required")
-    .matches(CARD_PATTERN_REG_MASTERCARD, {
-      message: "not valid Master card Number",
-      excludeEmptyString: true,
-    }),
+    .test(
+      "test-number",
+      "Credit Card number is invalid",
+      (value) => valid.number(value).isValid
+    ),
   expiryDate: yup.string().required("Add the expiryDate"),
   cvc: yup.string().required("Add the cvc"),
 });

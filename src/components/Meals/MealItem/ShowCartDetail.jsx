@@ -19,6 +19,7 @@ const ShowCart = () => {
   const cartCtx = useContext(CartContext);
 
   const { totalAmount, meals, removeItem, deleteItem, addItem } = cartCtx;
+  console.log("total amount in showcartdetail", totalAmount);
 
   return (
     <>

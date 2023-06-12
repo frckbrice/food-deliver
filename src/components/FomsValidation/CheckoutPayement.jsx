@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, useField, Field } from "formik";
 import { PaymentInputsWrapper, usePaymentInputs } from "react-payment-inputs";
@@ -69,23 +69,22 @@ const images = {
 };
 
 const initialValues = {
-  cvc: "",
   name: "",
   email: "",
+  phoneNumber: "",
   quater: "",
+  acceptedTerms: false,
   cardNumber: "",
   expiryDate: "",
-  phoneNumber: "",
-  acceptedTerms: false,
+  cvc: "",
 };
 
 const CheckoutPayement = () => {
   // const { setUserValues } = useLocalStorage();
   const navigate = useNavigate();
   const { meals, totalAmount } = useContext(CartContext);
-
+  const [trueValue, setTrueValue] = useState(false);
   const {
-    meta,
     getCardImageProps,
     getCardNumberProps,
     getExpiryDateProps,
@@ -93,23 +92,36 @@ const CheckoutPayement = () => {
     wrapperProps,
   } = usePaymentInputs();
 
-  const storeUserData = (values, { setSubmitting, resetForm }) => {
-    setTimeout(() => {
-      set(`${values.name}`, values);
-      setSubmitting(false);
+  useEffect(() => {
+    if (trueValue) {
       navigate("/foodDetail/ShowCart/PayementDetails/success");
-    }, 400);
+    }
+  }, []);
 
-    navigate("/foodDetail/ShowCart/PayementDetails/cancel");
+  const processCheckout = (values, { setSubmitting, resetForm }) => {
+    console.log("process checkout ok");
+    if (values) {
+      setTrueValue(true);
+      navigate("/foodDetail/ShowCart/PayementDetails/success");
+      console.log(trueValue);
+      setTimeout(() => {
+        set(`${values.name}`, values);
+        setSubmitting(false);
+      }, 400);
+    } else {
+      setTrueValue(false);
+    }
+
     resetForm({ values: "" });
   };
 
+  console.log("process checkout ko");
   return (
     <>
       <HeaderWithoutBtn />
       <main className={classes["main-container"]}>
         <Card2>
-          <h1>Checkout Process</h1>
+          <h1 className={classes.h1}>Checkout Process</h1>
           <div className={classes.container}>
             <div>
               {" "}
@@ -127,7 +139,8 @@ const CheckoutPayement = () => {
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
-              onSubmit={storeUserData}
+              // validationSchema={() => {}}
+              onSubmit={processCheckout}
             >
               <Form className={classes.form}>
                 <MyTextInput
@@ -218,7 +231,13 @@ const CheckoutPayement = () => {
                 <button type="submit" className={classes.bton}>
                   Submit
                 </button>
-                <button type="submit" className={classes.bton}>
+                <button
+                  type="submit"
+                  className={classes.bton}
+                  onClick={() => {
+                    navigate("/foodDetail/ShowCart/PayementDetails/cancel");
+                  }}
+                >
                   Cancel
                 </button>
               </Form>

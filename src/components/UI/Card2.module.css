@@ -1,7 +1,7 @@
 .card {
   padding: 1rem;
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); */
-  box-shadow: 0 2px 20px 10px rgba(70, 41, 16, 0.95);
+  /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25); */
+  box-shadow: rgba(67, 47, 10, 0.35) 0px 5px 15px;
 
   border-radius: 14px;
   background: url("../../assests/bg2.jpeg");

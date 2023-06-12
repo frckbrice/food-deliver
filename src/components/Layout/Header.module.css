@@ -15,7 +15,7 @@
 }
 
 .main-image {
-  width: 100%;
+  width: 100vw;
   height: 15rem;
   z-index: 0;
   overflow: hidden;
@@ -26,6 +26,7 @@
   height: 100%;
   object-fit: cover;
   transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
+  margin-left: 0.85rem;
 }
 
 @media screen and (max-width: 600px) {

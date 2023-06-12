@@ -38,9 +38,9 @@ const AdminRoot = () => {
   const searching =
     navigation.location &&
     new URLSearchParams(navigation.location.search).has("q");
-  // useEffect(() => {
-  //   document.getElementById("q").value = q;
-  // }, [q]);
+  useEffect(() => {
+    document.getElementById("q").value = q;
+  }, [q]);
 
   const [authenticated, setauthenticated] = useState(null);
   const { lsData } = useLocalStorage("authenticated");
@@ -53,7 +53,7 @@ const AdminRoot = () => {
       return navigate("/login");
     }
     setlsData(meals);
-  }, [lsData, navigate, setlsData, meals]);
+  }, []);
 
   return (
     <>
@@ -68,7 +68,7 @@ const AdminRoot = () => {
               navigate("/");
             }}
           >
-            HOME PAGE
+            HOME
           </button>
         </h1>
         <div>

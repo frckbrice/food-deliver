@@ -21,14 +21,6 @@ body {
   left: 12%;
   margin: auto;
 }
-/* 
-.div-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 0 0 1rem 1rem;
-} */
 
 .food-image {
   width: 40rem;
@@ -103,4 +95,5 @@ span {
   align-items: end;
   gap: 50%;
   margin-left: 15px;
+  margin-top: 25px;
 }

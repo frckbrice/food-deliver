@@ -36,6 +36,5 @@ export function useLocalStorage(key, intialValue) {
     };
   }, [key, setLocalStoragelsData, lsData]);
 
-  console.log("from local storage before return", lsData);
   return { lsData, setlsData: setLocalStoragelsData };
 }

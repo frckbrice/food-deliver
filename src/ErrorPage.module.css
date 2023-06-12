@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Philosopher&family=Playfair:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&family=Philosopher&family=Playfair:wght@300&display=swap");
 
 #error-page {
   font-family: Philosopher, "Tahoma", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -12,4 +12,12 @@
 
 i {
   color: red;
+}
+
+.h2 {
+  text-align: center;
+  font-family: Satisfy, sans-serif;
+  padding: 0 1.5rem;
+  font-size: 40px;
+  margin-top: 7.8rem;
 }
