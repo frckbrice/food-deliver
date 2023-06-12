@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 const EMAIL_REG = /\S+@\S+\.\S+/g;
 export default yup.object().shape({
-  email: yup.string().required("Required").matches(EMAIL_REG, {
+  username: yup.string().required("Required").matches(EMAIL_REG, {
     message: "not valid email address",
     excludeEmptyString: true,
   }),

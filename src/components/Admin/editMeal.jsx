@@ -1,12 +1,13 @@
 import React from "react";
 import { Form, useLoaderData, redirect, useNavigate } from "react-router-dom";
 import { updateMeal } from "./modules";
+import "./style.css";
 
 export async function action({ request, params }) {
   const formData = await request.formData();
   const updates = Object.fromEntries(formData);
   await updateMeal(params.mealId, updates);
-  return redirect(`/Adminpage/meals/${params.mealId}`);
+  return redirect(`/Login/Adminpage/meals/${params.mealId}`);
 }
 
 const EditMeal = () => {
@@ -17,8 +18,8 @@ const EditMeal = () => {
       <p>
         <span>Name</span>
         <input
-          placeholder="First"
-          aria-label="First name"
+          placeholder="meal's name"
+          aria-label=" name"
           type="text"
           name="first"
           defaultValue={meal.first}
@@ -30,22 +31,9 @@ const EditMeal = () => {
         <input
           type="text"
           name="price"
-          placeholder=" $"
+          placeholder=" $ price"
           defaultValue={meal.price}
         />
-      </label>
-      <label>
-        <span>Origin</span>
-        <input
-          type="text"
-          name="origin"
-          placeholder="origin of meal"
-          defaultValue={meal.origin}
-        />
-      </label>
-      <label>
-        <span>Nutrient support</span>
-        <textarea name="nutrient" defaultValue={meal.nutrient} rows={6} />
       </label>
       <label>
         <span>Avatar URL</span>
@@ -58,17 +46,29 @@ const EditMeal = () => {
         />
       </label>
       <label>
-        <span>Brieve Description</span>
+        <span>Nutrient support</span>{" "}
+        <textarea
+          name="nutrient"
+          defaultValue={meal.nutrient}
+          rows={6}
+          className="nutrientS"
+        />
+      </label>{" "}
+      <label>
+        <span> Description</span>
         <textarea name="description" defaultValue={meal.description} rows={6} />
       </label>
       <p>
-        <button type="submit">Save</button>
+        <button type="submit" className="btn">
+          Save
+        </button>
 
         <button
           type="button"
           onClick={() => {
             navigate(-1);
           }}
+          className="btn"
         >
           Cancel
         </button>

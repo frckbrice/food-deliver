@@ -64,7 +64,8 @@ const initialValues = {
 const SignUp = () => {
   const storeUserData = (values, { setSubmitting, resetForm }) => {
     setTimeout(() => {
-      set("email", values);
+      set("user", values);
+      set("authenticated", false);
       setSubmitting(false);
       console.log("Saved in Local Storage");
     }, 400);
@@ -76,7 +77,7 @@ const SignUp = () => {
   return (
     <>
       <HeaderWithoutBtn />
-      <main className={classes["main-container"]}>
+      <main className={classes["main-containerSignUp"]}>
         <Card2>
           <Formik
             initialValues={initialValues}
@@ -111,7 +112,11 @@ const SignUp = () => {
                 maxLength={15}
               />
               <br />
-              <MySelect label="Role" name="role" className={classes.select}>
+              <MySelect
+                label="Role"
+                name="role"
+                className={classes.selectSignup}
+              >
                 <option value="">Select your Role</option>
                 <option value="admin">Admin</option>
                 <option value="guestUser">User</option>
@@ -146,7 +151,7 @@ const SignUp = () => {
               <p className="forgot-password text-right">
                 Already registered &nbsp;
                 <Link to="/login">
-                  <button className={classes["btnlogin"]}>log in</button>
+                  <button className="text-blue-800 text-2xl">log in</button>
                 </Link>
                 &nbsp;&nbsp;?
               </p>

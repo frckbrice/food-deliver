@@ -7,7 +7,7 @@ body {
 .main-container {
   padding: 0 1rem 5rem 15%;
   color: aliceblue;
-  width: 80%;
+  min-width: 90%;
   /* background-color: blueviolet; */
   font-family: Philosopher, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     sans-serif;
@@ -17,13 +17,19 @@ body {
   padding: 0 1rem 5rem 15%;
   color: aliceblue;
   width: 60%;
-  /* background-color: blueviolet; */
   font-family: Philosopher, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     sans-serif;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto; */
+  position: absolute;
+  top: 30%;
+  left: 18%;
+}
+
+.main-containerSignUp {
+  padding: 0 1rem 5rem 15%;
+  color: aliceblue;
+  width: 70%;
+  font-family: Philosopher, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
   position: absolute;
   top: 30%;
   left: 18%;
@@ -59,6 +65,7 @@ h1 {
   justify-content: center;
   align-items: flex-start;
   gap: 5px;
+  border: solid 1px rgb(82, 236, 26);
 }
 
 .formSignIn {
@@ -87,6 +94,14 @@ h1 {
 .select {
   font-size: 16px;
   width: 179%;
+  padding: 12px 10px;
+  border-radius: 5px;
+  color: black;
+}
+
+.selectSignup {
+  font-size: 16px;
+  width: 100%;
   padding: 12px 10px;
   border-radius: 5px;
   color: black;
@@ -126,7 +141,7 @@ h1 {
 
 .card {
   margin-top: 15px;
-  color: lightslategray;
+  color: rgb(15, 227, 37);
   margin-bottom: 10px;
 }
 
@@ -146,7 +161,7 @@ h1 {
   margin-right: 10px;
 }
 
-.btnlogin {
+.link {
   color: blue;
   font-size: 14px;
   padding: 1px 10px;

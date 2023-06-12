@@ -106,14 +106,13 @@ const CheckoutPayement = () => {
     return errors;
   };
 
-  const storeUserData = (values, { setSubmitting }) => {
+  const storeUserData = (values, { setSubmitting, resetForm }) => {
     setTimeout(() => {
-      // setUserValues(values);
       set(`${values.name}`, values);
       setSubmitting(false);
-      Formik.resetForm();
     }, 400);
     console.log(values);
+    resetForm({ values: "" });
   };
 
   return (
@@ -125,7 +124,7 @@ const CheckoutPayement = () => {
           <div className={classes.container}>
             <div>
               {" "}
-              <h1>Food Ordered:</h1>
+              <h1 className="mb-6 text-amber-600">Food(s) Ordered:</h1>
               {meals.length >= 1 &&
                 meals.map((meal) => (
                   <div key={meal.id} className={classes.meal}>
@@ -133,14 +132,14 @@ const CheckoutPayement = () => {
                     <span>{(meal.quantity * meal.price).toFixed(2)}</span>
                   </div>
                 ))}
-              <h1>Total Amount: {totalAmount}</h1>
+              <h1 className="mt-6">Total Amount: {totalAmount.toFixed(2)}</h1>
             </div>
 
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={storeUserData}
-              validate={validate}
+              // validate={validate}
             >
               <Form className={classes.form}>
                 <MyTextInput
@@ -166,6 +165,7 @@ const CheckoutPayement = () => {
                   type="text"
                   placeholder="+237"
                   className={classes.input}
+                  maxLength={15}
                 />
                 <br />
                 <MySelect
@@ -227,7 +227,7 @@ const CheckoutPayement = () => {
                   </PaymentInputsWrapper>
                 </div>
 
-                <button type="submit" className={classes.btn}>
+                <button type="submit" className={classes.bton}>
                   Submit
                 </button>
               </Form>

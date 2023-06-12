@@ -1,16 +1,13 @@
 import { useRouteError } from "react-router-dom";
-import Header from "./components/Layout/Header";
-import classes from "./ErrorPage.module.css";
+import "./style.css";
 
-export default function ErrorPage() {
+export default function ErrorAdminPage() {
   const error = useRouteError();
   console.error(error);
 
   return (
     <>
-      <Header />
-
-      <div id={classes["error-page"]}>
+      <div className="error-page">
         <h1>Oops!</h1>
         <p>Sorry, an unexpected error has occurred.</p>
         <p>

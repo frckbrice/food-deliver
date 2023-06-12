@@ -17,9 +17,9 @@ const foodInStock = [
   {
     id: "2",
     pict: "https://flavorverse.com/wp-content/uploads/2021/01/Couscous-640x480.jpg",
-    name: "Couscous from North Africa",
+    name: "Couscous North Africa",
     description: "Couscous in the Berber language means rolled or rounded",
-    price: 22.99,
+    price: 18.99,
     nutrients: {
       energy: "65 (kcal)",
       carbohydrate: "12.9 (g)",

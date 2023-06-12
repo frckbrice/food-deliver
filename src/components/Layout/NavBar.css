@@ -4,20 +4,23 @@ Sidebar navigation
 .navbar {
   position: relative;
 }
-button {
+
+/* button {
   cursor: pointer;
   border: none;
   font-size: 40px;
   background-color: #5bd736;
   border-radius: 15px;
-}
+} */
+
 .navbar .toggle {
   position: fixed;
   right: 100px;
-  top: 30px;
+  top: 20px;
   cursor: pointer;
   background: transparent;
   border: none;
+  font-size: 40px;
 }
 .menu-nav {
   list-style: none;

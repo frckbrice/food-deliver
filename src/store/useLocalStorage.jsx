@@ -2,23 +2,23 @@ import React from "react";
 
 export function useLocalStorage(key, intialValue) {
   console.log("in useLocalStorage() before usestate");
-  const [value, setValue] = React.useState(() => {
+  const [lsData, setlsData] = React.useState(() => {
     console.log("in lazy initialization");
     return JSON.parse(localStorage.getItem(key)) || intialValue;
   });
 
   console.log("in useLocalStorage() before useCallback");
-  const setLocalStorageValue = React.useCallback(
-    (value) => {
-      setValue(() => {
-        if (value) {
-          localStorage.setItem(key, JSON.stringify(value));
+  const setLocalStoragelsData = React.useCallback(
+    (lsData) => {
+      setlsData(() => {
+        if (lsData) {
+          localStorage.setItem(key, JSON.stringify(lsData));
         } else {
-          console.log("no value to store in local storage");
+          console.log("no lsData to store in local storage");
           return;
         }
 
-        return value;
+        return lsData;
       });
     },
     [key]
@@ -26,11 +26,11 @@ export function useLocalStorage(key, intialValue) {
 
   console.log("in useLocalStorage() before useEffect");
   React.useEffect(() => {
-    setLocalStorageValue(value);
+    setLocalStoragelsData(lsData);
 
     const refreshStorageFunc = (event) => {
       if (event.key === key) {
-        setValue(event.newValue);
+        setlsData(event.newlsData);
       }
     };
     window.addEventListener("storage", refreshStorageFunc);
@@ -38,7 +38,12 @@ export function useLocalStorage(key, intialValue) {
     return () => {
       window.removeEventListener("storage", refreshStorageFunc);
     };
-  }, [key, setLocalStorageValue, value]);
+  }, [key, setLocalStoragelsData, lsData]);
 
-  return { value, setValue: setLocalStorageValue };
+  console.log(
+    "before return, lsData is",
+    JSON.parse(localStorage.getItem(key))
+  );
+
+  return { lsData, setlsData: setLocalStoragelsData };
 }

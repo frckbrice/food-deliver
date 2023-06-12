@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   Outlet,
-  // Link, // replaced by NavLink for the sake of hovering
   useLoaderData,
   Form,
   redirect,
   NavLink,
   useNavigation,
   useSubmit,
+  useNavigate,
 } from "react-router-dom";
+import "./style.css";
 import { getMeals, createMeal } from "./modules";
+import { useLocalStorage } from "../../store/useLocalStorage";
+import Card2 from "../UI/Card2";
 
 export async function action() {
   const meal = await createMeal();
@@ -26,16 +29,29 @@ export async function loader({ request }) {
 const AdminRoot = () => {
   const { meals, q } = useLoaderData();
   const navigation = useNavigation();
-  // this make filter happen on every key stroke
+  const navigate = useNavigate();
+  const inputRef = useRef(null);
+  // this (submit) make filter happen on every key stroke
   const submit = useSubmit();
-
-  useEffect(() => {
-    document.getElementById("q").value = q;
-  }, [q]);
-
   const searching =
     navigation.location &&
     new URLSearchParams(navigation.location.search).has("q");
+  // useEffect(() => {
+  //   document.getElementById("q").value = q;
+  // }, [q]);
+
+  const [authenticated, setauthenticated] = useState(null);
+  const { lsData } = useLocalStorage("authenticated");
+  useEffect(() => {
+    const loggedInUser = lsData;
+    if (loggedInUser) {
+      setauthenticated(loggedInUser);
+    }
+  }, [lsData]);
+
+  if (!authenticated) {
+    return navigate("/login");
+  }
 
   return (
     <>
@@ -48,6 +64,7 @@ const AdminRoot = () => {
           <Form id="search-form" role="search">
             <input
               id="q"
+              ref={inputRef}
               aria-label="Search meals"
               placeholder="Search"
               type="search"
@@ -80,10 +97,8 @@ const AdminRoot = () => {
                       isActive ? "active" : isPending ? "pending" : ""
                     }
                   >
-                    {meal.first || meal.last ? (
-                      <>
-                        {meal.first} {meal.last}
-                      </>
+                    {meal.first ? (
+                      <>{meal.first}</>
                     ) : (
                       <i>No Name for this meal yet</i>
                     )}{" "}
@@ -103,7 +118,10 @@ const AdminRoot = () => {
         id="detail"
         className={navigation.state === "loading" ? "loading" : ""}
       >
-        <Outlet />
+        <Card2>
+          {" "}
+          <Outlet />
+        </Card2>
       </div>
     </>
   );

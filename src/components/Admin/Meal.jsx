@@ -1,6 +1,7 @@
 import { Form, useLoaderData } from "react-router-dom";
 import { getMeal } from "./modules";
 import Favorite from "./Favorite";
+import "./style.css";
 
 // for the sake of optimization. if there's no meal to load
 export async function loader({ params }) {
@@ -24,20 +25,24 @@ export default function Food() {
       </div>
 
       <div className="div-data">
-        <dir>
+        <div>
           <h1>
-            {meal.first ? <>{meal.first}</> : <i>No Food Name</i>}{" "}
+            {meal.first ? <span>{meal.first}</span> : <>No Food Name</>}
             <Favorite meal={meal} />
           </h1>
 
-          {<p>{meal.price}</p>}
-          {meal.origin && <p>{meal.origin}</p>}
-          {meal.nutrient && <p>{meal.nutrient}</p>}
-          {meal.description && <p>{meal.description}</p>}
-        </dir>
+          {<p className="price text-green-500">${meal.price}</p>}
+
+          {meal.nutrient && <p className="nutrient">{meal.nutrient}</p>}
+          {meal.description && (
+            <p className="description"> {meal.description}</p>
+          )}
+        </div>
         <div className="div-edit-btn">
           <Form action="edit">
-            <button type="submit">Edit</button>
+            <button type="submit" className="btn">
+              Edit
+            </button>
           </Form>
           <Form
             method="post"
@@ -53,7 +58,9 @@ export default function Food() {
               }
             }}
           >
-            <button type="submit">Delete</button>
+            <button type="submit" className="btn">
+              Delete
+            </button>
           </Form>
         </div>
       </div>

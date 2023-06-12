@@ -1,31 +1,58 @@
 @import url("https://fonts.googleapis.com/css2?family=Philosopher&display=swap");
 
-.food-details {
-  display: flex;
-
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 10%;
-  height: 100vh;
-  overflow: hidden;
-  color: #fff;
-  font-family: Philosopher, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif;
-  position: relative;
-  padding: 4% 8% 7% 9%;
+* html {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 1px solid blue;
 }
 
+body {
+  position: relative;
+}
+
+.food-details {
+  color: #fff;
+  font-family: Philosopher, "Gill Sans", "Gill Sans MT";
+  position: absolute;
+  /* border: 1px solid salmon; */
+  width: 75%;
+  top: 34%;
+  left: 12%;
+  margin: auto;
+}
+/* 
 .div-image {
   display: flex;
-  margin: 30px 50px 0 0;
-}
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 0 1rem 1rem;
+} */
 
 .food-image {
-  width: 25rem;
-  height: 25rem;
+  width: 40rem;
+  height: 20rem;
   border-radius: 15%;
-  object-fit: cover;
-  margin-right: 5%;
+}
+
+.global-container {
+  display: flex;
+  width: 60%;
+  float: right;
+  position: absolute;
+  left: 30%;
+  top: 10px;
+}
+
+.price {
+  font-size: 25px;
+  color: #74fa4b;
+}
+
+.title {
+  display: flex;
+  width: 300px;
 }
 
 .go-back {
@@ -37,12 +64,16 @@
   padding: 0.5rem 2rem;
   border-radius: 20px;
   font-weight: bold;
-  position: relative;
   display: inline-block;
   z-index: 1;
-  position: absolute;
-  top: 25%;
-  right: 230px;
+  /* position: absolute;
+  position: fixed;
+  top: 80%;
+  right: 19%; */
+}
+
+span {
+  /* color: #e37210; */
 }
 
 .go-back span {
@@ -68,6 +99,8 @@
 .div-mealItemForm {
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex-direction: column;
+  align-items: end;
+  gap: 50%;
+  margin-left: 15px;
 }

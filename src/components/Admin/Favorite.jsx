@@ -1,6 +1,7 @@
 import React from "react";
 import { useFetcher } from "react-router-dom";
 import { updateMeal } from "./modules";
+import "./style.css";
 
 export async function action({ request, params }) {
   let formData = await request.formData();

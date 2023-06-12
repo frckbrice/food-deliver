@@ -22,6 +22,7 @@ import EditMeal, {
 } from "./components/Admin/editMeal";
 import { action as deleteAction } from "./components/Admin/deleteMeal";
 import { action as foodFavoriteAction } from "./components/Admin/Favorite";
+import ErrorAdminPage from "./components/Admin/ErrorAdminpage";
 
 const router = createBrowserRouter([
   {
@@ -89,11 +90,11 @@ const router = createBrowserRouter([
     ),
     loader: AdminLoadMeals,
     action: AdminCreateMeal,
-    errorElement: <ErrorPage />,
+    // errorElement: <ErrorAdminPage />,
 
     children: [
       {
-        errorElement: <ErrorPage />,
+        errorElement: <ErrorAdminPage />,
         children: [
           { index: true, element: <Index /> },
           {

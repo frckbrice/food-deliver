@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Formik, Form, useField } from "formik";
 import validationSchema from "./SignInValidationSchema";
 import classes from "../CheckoutPayement.module.css";
 import Card2 from "../../UI/Card2";
 import HeaderWithoutBtn from "../../Layout/HeaderWithoutBtn";
-// import { Set as set } from "../../../store/functions";
-// import AdminPage from "../../Admin/AdminPage";
 import { useLocalStorage } from "../../../store/useLocalStorage";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -40,31 +38,57 @@ const MySelect = ({ label, ...props }) => {
 };
 
 const initialValues = {
-  email: "",
-  passWord: "",
+  username: "",
+  password: "",
   role: "",
 };
 
 const SignIn = () => {
-  const { lsData, setLsData } = useLocalStorage("email", {});
+  // const { lsData, setLsData } = useLocalStorage("email");
   const [flag, setFlag] = useState(false);
+  const navigate = useNavigate();
+  const [successAuth, setSuccessAuth] = useState(false);
+  const { lsData, setlsData } = useLocalStorage("authenticated", false);
 
-  const CheckLogin = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      if (
-        values.passWord !== lsData.passWord ||
-        values.email !== lsData.email
-      ) {
-        setFlag(true);
-      } else {
-        setFlag(false);
-      }
-      setLsData(values);
+  const authUsers = [
+    {
+      username: "avomevariste@ymail.com",
+      password: "123456789",
+      role: "admin",
+    },
+  ];
+  useEffect(() => {
+    if (successAuth) {
+      navigate("/Login/Adminpage");
+    }
+  }, [successAuth, navigate]);
+
+  const CheckLoginAndRedirect = (values, { setSubmitting, resetForm }) => {
+    const accountUser = authUsers.find(
+      (user) => user.username === values.username
+    );
+    if (
+      accountUser &&
+      accountUser.password === values.password &&
+      accountUser.role === "admin"
+    ) {
+      setSuccessAuth(true);
+      // setTimeout(() => {
+      //   navigate("/Login/Adminpage");
+      // }, 400);
+      setFlag(false);
+      setlsData(true);
+      toast.success(`Login Successfull Mr. ${lsData.role}`);
+      resetForm({ values: "" });
+    } else {
+      setFlag(true);
+      setSuccessAuth(false);
       setSubmitting(false);
-      Formik.resetForm();
-      console.log("Saved in Local Storage");
-    }, 400);
-    toast.success("Login Successfull Mr. Admin");
+      resetForm({ values: "" });
+      console.log("Not saved in Local Storage");
+    }
+
+    setSubmitting(false);
   };
 
   return (
@@ -75,17 +99,18 @@ const SignIn = () => {
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={CheckLogin}
+            onSubmit={CheckLoginAndRedirect}
           >
             <Form className={classes.formSignIn}>
               <h1> Login Page</h1>
 
               <MyTextInput
-                label="Email Address"
-                name="email"
+                label="UserName"
+                name="username"
                 type="email"
                 placeholder="example@hotmail.com"
                 className={classes.input}
+                value={undefined}
               />
 
               <br />
@@ -105,15 +130,11 @@ const SignIn = () => {
               />
 
               <br />
-              <Link to="/Login/Adminpage">
-                <button type="submit" className={classes.btonSignIn}>
-                  Submit
-                </button>
-              </Link>
+              <button type="submit" className={classes.btonSignIn}>
+                Submit
+              </button>
               {flag && (
-                <p className={classes.error}>
-                  Fill correct Info else keep trying.
-                </p>
+                <p className={classes.error}>Can not access private page.</p>
               )}
             </Form>
           </Formik>
