@@ -3,13 +3,16 @@ import Input from "../../UI/Input";
 import { useRef, useState, memo } from "react";
 import { toast } from "react-hot-toast";
 import { getfoodInStock } from "../GetFoods";
+import { useLocalStorage } from "../../../store/useLocalStorage";
 
 const MealItemForm = (props) => {
   const [amountIsValid, setAmountIsValid] = useState(true);
 
   const amountInputRef = useRef();
 
-  const food = getfoodInStock(props.id);
+  const { lsData } = useLocalStorage("displayList");
+
+  const food = getfoodInStock(lsData, props.id);
 
   const submitHandler = (event) => {
     event.preventDefault();

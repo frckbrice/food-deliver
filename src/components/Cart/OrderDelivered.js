@@ -1,7 +1,9 @@
 import { Fragment } from "react";
 import classes from "./Cart.module.css";
+import { useNavigate } from "react-router-dom";
 
 const OrderDelivered = (props) => {
+  const navigate = useNavigate();
   return (
     <Fragment>
       <section>
@@ -13,7 +15,12 @@ const OrderDelivered = (props) => {
         </p>
       </section>
       <div className={classes.actions}>
-        <button className={classes["button--alt"]} onClick={props.onClose}>
+        <button
+          className={classes["button--alt"]}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           Close
         </button>
       </div>

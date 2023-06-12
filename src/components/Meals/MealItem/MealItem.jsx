@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const MealItem = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const price = `$${props.price.toFixed(2)}`;
+  const price = `$${parseInt(props.price).toFixed(2)}`;
 
   const addToCartHandler = useCallback(
     (quantity) => {
@@ -25,7 +25,7 @@ const MealItem = (props) => {
     <div className={classes.meal}>
       <div className={classes["single-food"]}>
         <Link to={`/foodDetails/${props.id}`}>
-          <img src={props.pict} alt="" className={classes.avatar} />
+          <img src={props.avatar} alt="" className={classes.avatar} />
 
           <div className={classes.overlay}></div>
           <div className={classes["food-desc"]}>

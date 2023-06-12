@@ -23,6 +23,8 @@ import EditMeal, {
 import { action as deleteAction } from "./components/Admin/deleteMeal";
 import { action as foodFavoriteAction } from "./components/Admin/Favorite";
 import ErrorAdminPage from "./components/Admin/ErrorAdminpage";
+import OrderDelivered from "./components/Cart/OrderDelivered";
+import OrderCanceled from "./components/Cart/OrderCanceled";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +63,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
+    path: "/foodDetail/ShowCart/PayementDetails/success",
+    element: <OrderDelivered />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/foodDetail/ShowCart/PayementDetails/cancel",
+    element: <OrderCanceled />,
+    errorElement: <ErrorPage />,
+  },
+  {
     path: "/login",
     element: (
       <>
@@ -80,6 +92,7 @@ const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
   },
+
   {
     path: "/Login/Adminpage",
     element: (

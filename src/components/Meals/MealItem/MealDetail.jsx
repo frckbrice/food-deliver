@@ -9,11 +9,15 @@ import classes from "./MealDetail.module.css";
 import Favorite from "./Favorite";
 import Card from "../../UI/Card";
 import Header from "../../Layout/Header";
+import { useLocalStorage } from "../../../store/useLocalStorage";
 
 const FoodDetail = (props) => {
   const navigate = useNavigate();
   const { foodId } = useParams();
-  const foodIdMeal = getfoodInStock(foodId);
+
+  const { lsData } = useLocalStorage("displayList");
+
+  const foodIdMeal = getfoodInStock(lsData, foodId);
 
   const cartCtx = useContext(CartContext);
 
@@ -24,11 +28,17 @@ const FoodDetail = (props) => {
         name: foodIdMeal.name,
         quantity: quantity,
         price: foodIdMeal.price,
-        pict: foodIdMeal.pict,
+        avatar: foodIdMeal.avatar,
       });
       toast(`Adding ${quantity} ${foodIdMeal.name} in the cart`);
     },
-    [foodIdMeal.name, foodIdMeal.id, foodIdMeal.price, foodIdMeal.pict, cartCtx]
+    [
+      foodIdMeal.name,
+      foodIdMeal.id,
+      foodIdMeal.price,
+      foodIdMeal.avatar,
+      cartCtx,
+    ]
   );
 
   return (
@@ -38,7 +48,7 @@ const FoodDetail = (props) => {
         <Card>
           <div className={classes["div-image"]}>
             <img
-              src={foodIdMeal.pict}
+              src={foodIdMeal.avatar}
               alt=""
               className={classes["food-image"]}
             />
@@ -59,31 +69,18 @@ const FoodDetail = (props) => {
                   <p>
                     Price:{" "}
                     <span className={classes.price}>
-                      {`${foodIdMeal.price.toFixed(2)}`
+                      {`${parseInt(foodIdMeal.price).toFixed(2)}`
                         .toString()
                         .indexOf(".") !== -1
-                        ? `$${foodIdMeal.price.toFixed(2)}`
-                        : `$${foodIdMeal.price.toFixed(2)}.00`}
+                        ? `$${parseInt(foodIdMeal.price).toFixed(2)}`
+                        : `$${parseInt(foodIdMeal.price).toFixed(2)}.00`}
                     </span>
                   </p>
                 )}
               </div>
               <dir className="w-144 border-b pb-1">
                 <h3 className="text-3xl">More details: </h3>
-                <span>Energy:&nbsp;&nbsp; ${foodIdMeal.nutrients.energy}</span>
-                <span>
-                  <br />
-                  Carbohydrate: &nbsp;&nbsp; $
-                  {foodIdMeal.nutrients.carbohydrate}
-                </span>
-                <br />
-                <span>
-                  Protein: &nbsp;&nbsp; ${foodIdMeal.nutrients.proteine}
-                </span>
-                <br />
-                <span>Fat: &nbsp;&nbsp; ${foodIdMeal.nutrients.fat}</span>
-                <br />
-                <span>Water: &nbsp;&nbsp; ${foodIdMeal.nutrients.water}</span>
+                <span>{foodIdMeal.nutrient}</span>
                 <br />
               </dir>
             </div>

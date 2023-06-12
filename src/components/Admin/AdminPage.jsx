@@ -31,6 +31,8 @@ const AdminRoot = () => {
   const navigation = useNavigation();
   const navigate = useNavigate();
   const inputRef = useRef(null);
+  const { setlsData } = useLocalStorage("displayList");
+
   // this (submit) make filter happen on every key stroke
   const submit = useSubmit();
   const searching =
@@ -46,19 +48,28 @@ const AdminRoot = () => {
     const loggedInUser = lsData;
     if (loggedInUser) {
       setauthenticated(loggedInUser);
+    } else {
+      setauthenticated(!loggedInUser);
+      return navigate("/login");
     }
-  }, [lsData]);
-
-  if (!authenticated) {
-    return navigate("/login");
-  }
+    setlsData(meals);
+  }, [lsData, navigate, setlsData, meals]);
 
   return (
     <>
       <div id="sidebar">
         <h1 className="root-h1">
           {" "}
-          Welcome to Admin Dashboard for <br /> Food-App Project
+          <span>
+            Welcome to Admin Dashboard for <br /> Food-App Project
+          </span>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            HOME PAGE
+          </button>
         </h1>
         <div>
           <Form id="search-form" role="search">
@@ -97,8 +108,8 @@ const AdminRoot = () => {
                       isActive ? "active" : isPending ? "pending" : ""
                     }
                   >
-                    {meal.first ? (
-                      <>{meal.first}</>
+                    {meal.name ? (
+                      <>{meal.name}</>
                     ) : (
                       <i>No Name for this meal yet</i>
                     )}{" "}

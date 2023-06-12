@@ -1,13 +1,16 @@
 import classes from "./AvailableMeals.module.css";
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
-import { foodInStock } from "./GetFoods";
+import { useLocalStorage } from "../../store/useLocalStorage";
 
 const AvailableMeals = () => {
-  const mealsList = foodInStock.map((meal) => (
+  const { lsData } = useLocalStorage("displayList");
+  console.log(lsData);
+
+  const mealsList = lsData.map((meal) => (
     <MealItem
       key={meal.id}
-      pict={meal.pict}
+      pict={meal.avatar}
       name={meal.name}
       price={meal.price}
       id={meal.id}

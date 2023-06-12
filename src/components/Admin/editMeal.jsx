@@ -21,8 +21,8 @@ const EditMeal = () => {
           placeholder="meal's name"
           aria-label=" name"
           type="text"
-          name="first"
-          defaultValue={meal.first}
+          name="name"
+          defaultValue={meal.name}
           className="input-name"
         />
       </p>

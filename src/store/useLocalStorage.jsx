@@ -1,13 +1,10 @@
 import React from "react";
 
 export function useLocalStorage(key, intialValue) {
-  console.log("in useLocalStorage() before usestate");
   const [lsData, setlsData] = React.useState(() => {
-    console.log("in lazy initialization");
     return JSON.parse(localStorage.getItem(key)) || intialValue;
   });
 
-  console.log("in useLocalStorage() before useCallback");
   const setLocalStoragelsData = React.useCallback(
     (lsData) => {
       setlsData(() => {
@@ -24,7 +21,6 @@ export function useLocalStorage(key, intialValue) {
     [key]
   );
 
-  console.log("in useLocalStorage() before useEffect");
   React.useEffect(() => {
     setLocalStoragelsData(lsData);
 
@@ -40,10 +36,6 @@ export function useLocalStorage(key, intialValue) {
     };
   }, [key, setLocalStoragelsData, lsData]);
 
-  console.log(
-    "before return, lsData is",
-    JSON.parse(localStorage.getItem(key))
-  );
-
+  console.log("from local storage before return", lsData);
   return { lsData, setlsData: setLocalStoragelsData };
 }

@@ -4,11 +4,8 @@ import sortBy from "sort-by";
 import { useLocalStorage } from "./useLocalStorage";
 
 export async function GetMeals(query) {
-  console.log("in function module, getting data from localstorage");
-
   await fakeNetwork(`GetMeals:${query}`);
-  // let { meals, setMeals } = useLocalStorage(`${query}`, {}); //wander how it's not possible!!!!
-  let { meals, setMeals } = useLocalStorage("meals", {});
+  let { meals, setMeals } = useLocalStorage("meals");
   if (!meals) meals = [];
   if (query) {
     meals = matchSorter(meals, query, { keys: ["name"] });
@@ -29,14 +26,14 @@ export async function CreateMeal() {
 
 export async function GetMeal(id) {
   await fakeNetwork(`meal:${id}`);
-  let { meals } = useLocalStorage("meals", {});
+  let { meals } = useLocalStorage("meals");
   let meal = meals.find((meal) => meal.id === id);
   return meal ?? null;
 }
 
 export async function UpdateMeal(id, updates) {
   await fakeNetwork();
-  let { meals, setMeals } = useLocalStorage("meals", {});
+  let { meals, setMeals } = useLocalStorage("meals");
   let meal = meals.find((meal) => meal.id === id);
   if (!meal) throw new Error("No meal found for", id);
   Object.assign(meal, updates);
@@ -45,7 +42,7 @@ export async function UpdateMeal(id, updates) {
 }
 
 export async function DeleteMeal(id) {
-  let { meals, setMeals } = useLocalStorage("meals", {});
+  let { meals, setMeals } = useLocalStorage("meals");
   let index = meals.findIndex((meal) => meal.id === id);
   if (index > -1) {
     meals.splice(index, 1);
@@ -56,7 +53,6 @@ export async function DeleteMeal(id) {
 }
 
 export function Set(key, value) {
-  console.log("in function module, successfull saving on key: " + key);
   return localStorage.setItem(`${key}`, JSON.stringify(value));
 }
 

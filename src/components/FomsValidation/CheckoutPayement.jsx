@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Formik, Form, useField, Field } from "formik";
 import { PaymentInputsWrapper, usePaymentInputs } from "react-payment-inputs";
 import validationSchema from "./ValidationSchema";
@@ -80,7 +81,7 @@ const initialValues = {
 
 const CheckoutPayement = () => {
   // const { setUserValues } = useLocalStorage();
-
+  const navigate = useNavigate();
   const { meals, totalAmount } = useContext(CartContext);
 
   const {
@@ -92,26 +93,14 @@ const CheckoutPayement = () => {
     wrapperProps,
   } = usePaymentInputs();
 
-  const validate = () => {
-    let errors = {};
-    if (meta.erroredInputs.cardNumber) {
-      errors.cardNumber = meta.erroredInputs.cardNumber;
-    }
-    if (meta.erroredInputs.expiryDate) {
-      errors.expiryDate = meta.erroredInputs.expiryDate;
-    }
-    if (meta.erroredInputs.cvc) {
-      errors.cvc = meta.erroredInputs.cvc;
-    }
-    return errors;
-  };
-
   const storeUserData = (values, { setSubmitting, resetForm }) => {
     setTimeout(() => {
       set(`${values.name}`, values);
       setSubmitting(false);
+      navigate("/foodDetail/ShowCart/PayementDetails/success");
     }, 400);
-    console.log(values);
+
+    navigate("/foodDetail/ShowCart/PayementDetails/cancel");
     resetForm({ values: "" });
   };
 
@@ -139,7 +128,6 @@ const CheckoutPayement = () => {
               initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={storeUserData}
-              // validate={validate}
             >
               <Form className={classes.form}>
                 <MyTextInput
@@ -229,6 +217,9 @@ const CheckoutPayement = () => {
 
                 <button type="submit" className={classes.bton}>
                   Submit
+                </button>
+                <button type="submit" className={classes.bton}>
+                  Cancel
                 </button>
               </Form>
             </Formik>

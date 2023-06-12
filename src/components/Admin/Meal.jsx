@@ -27,7 +27,7 @@ export default function Food() {
       <div className="div-data">
         <div>
           <h1>
-            {meal.first ? <span>{meal.first}</span> : <>No Food Name</>}
+            {meal.name ? <span>{meal.name}</span> : <>No Food Name</>}
             <Favorite meal={meal} />
           </h1>
 

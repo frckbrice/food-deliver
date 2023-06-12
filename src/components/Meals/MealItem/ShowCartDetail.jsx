@@ -39,7 +39,7 @@ const ShowCart = () => {
                 <div key={item.id} className={classes["item-card"]}>
                   <div className={classes["div2-image"]}>
                     <img
-                      src={item.pict}
+                      src={item.avatar}
                       alt={item.name}
                       className={classes["food-image2"]}
                     />

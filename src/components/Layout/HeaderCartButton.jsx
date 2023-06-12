@@ -1,4 +1,4 @@
-import CartIcon from "../Cart/CartIcon";
+import { TiShoppingCart } from "react-icons/ti";
 import classes from "./HeaderCartButton.module.css";
 import CartContext from "../../store/cart-context";
 import { useContext, useEffect, useState } from "react";
@@ -46,7 +46,7 @@ const HeaderCartButton = (props) => {
       onClick={() => navigate(`/foodDetail/ShowCart`)}
     >
       <span className={classes.icon}>
-        <CartIcon />
+        <TiShoppingCart />
       </span>
       <span>Your Cart</span>
       <span className={classes.badge}>{numberOfCartmeals}</span>
