@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/foodDetail/ShowCart",
+    path: "foodDetail/ShowCart",
     element: (
       <CartProvider>
         <Toaster />
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/foodDetail/ShowCart/PayementDetails",
+    path: "foodDetail/ShowCart/PayementDetails",
     element: (
       <CartProvider>
         <Toaster />
@@ -63,12 +63,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/foodDetail/ShowCart/PayementDetails/success",
+    path: "foodDetail/ShowCart/PayementDetails/success",
     element: <OrderDelivered />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/foodDetail/ShowCart/PayementDetails/cancel",
+    path: "foodDetail/ShowCart/PayementDetails/cancel",
     element: <OrderCanceled />,
     errorElement: <ErrorPage />,
   },
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/SignUp",
+    path: "SignUp",
     element: (
       <>
         <Toaster />
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/Login/Adminpage",
+    path: "Login/Adminpage",
     element: (
       <CartProvider>
         <Toaster />
@@ -111,20 +111,20 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Index /> },
           {
-            path: "/Login/Adminpage/meals/:mealId",
+            path: "Login/Adminpage/meals/:mealId",
             element: <Food />,
             loader: sampleFoodLoader,
             // this action is for the fetcher to make gain of time from network delays.
             action: foodFavoriteAction,
           },
           {
-            path: "/Login/Adminpage/meals/:mealId/edit",
+            path: "Login/Adminpage/meals/:mealId/edit",
             element: <EditMeal />,
             loader: sampleFoodLoader,
             action: EditFoodAction,
           },
           {
-            path: "/Login/Adminpage/meals/:mealId/destroy",
+            path: "Login/Adminpage/meals/:mealId/destroy",
             action: deleteAction,
             errorElement: (
               <div>

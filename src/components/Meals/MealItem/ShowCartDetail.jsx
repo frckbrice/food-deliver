@@ -23,7 +23,7 @@ const ShowCart = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className={classes["cart-wrapper"]}>
         <Card2>
           <div className={classes["cart-meals"]}>

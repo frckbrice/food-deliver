@@ -43,7 +43,7 @@ const FoodDetail = (props) => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className={classes["food-details"]}>
         <Card>
           <div className={classes["div-image"]}>

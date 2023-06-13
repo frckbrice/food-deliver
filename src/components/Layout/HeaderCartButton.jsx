@@ -15,6 +15,8 @@ const HeaderCartButton = memo((props) => {
   // const { meals } = useLocalStorage("meals");
   // const { meals } = getMeals();
 
+  console.log(meals);
+
   const numberOfCartmeals = meals.reduce((curNumber, item) => {
     return curNumber + item.quantity;
   }, 0);
@@ -38,7 +40,7 @@ const HeaderCartButton = memo((props) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [meals]);
+  }, []);
 
   return (
     <button
