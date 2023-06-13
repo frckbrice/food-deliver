@@ -6,7 +6,7 @@ import MealItemForm from "./MealItemForm";
 import CartContext from "../../../store/cart-context";
 import { toast } from "react-hot-toast";
 import classes from "./MealDetail.module.css";
-import Favorite from "./Favorite";
+import Favorite from "../../Admin/Favorite";
 import Card from "../../UI/Card";
 import Header from "../../Layout/Header";
 import { useLocalStorage } from "../../../store/useLocalStorage";
@@ -43,7 +43,7 @@ const FoodDetail = (props) => {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <div className={classes["food-details"]}>
         <Card>
           <div className={classes["div-image"]}>
@@ -61,7 +61,7 @@ const FoodDetail = (props) => {
                 ) : (
                   <i>No Name</i>
                 )}{" "}
-                <Favorite food={foodIdMeal} />
+                <Favorite meal={foodIdMeal} />
               </div>
               <div className={classes.favorite}></div>
               <div className="flex gap-x-4 border-b">

@@ -16,9 +16,10 @@ const MealItem = (props) => {
         name: props.name,
         quantity: quantity,
         price: props.price,
+        avatar: props.avatar,
       });
     },
-    [props.name, props.price, props.id, cartCtx]
+    [props.name, props.price, props.id, cartCtx, props.avatar]
   );
 
   return (
@@ -40,7 +41,8 @@ const MealItem = (props) => {
 
       <div>
         <div className={classes.price}>
-          <span> Price: </span>
+          <span> Price: &nbsp;</span>
+          {props.favorite && <span>★</span>}
           {price}
         </div>
       </div>

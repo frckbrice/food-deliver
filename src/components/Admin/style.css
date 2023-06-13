@@ -63,8 +63,21 @@ button {
 }
 
 button {
-  color: hsl(308, 96%, 26%);
+  color: white;
   font-weight: 500;
+}
+
+#new {
+  color: black;
+  font-weight: 600;
+}
+
+#newh1 {
+  color: white;
+  font-weight: 800;
+  box-shadow: inset 2px 0px 1px hsla(0, 5%, 79%, 0.4),
+    0 1px 2px hsla(0, 0%, 100%, 04);
+  font-size: 20px;
 }
 
 .btn {
@@ -132,13 +145,19 @@ form[action$="destroy"] button {
 
 .root-h1 {
   text-align: center;
-  color: green;
+  color: rgba(255, 255, 255, 0.401);
+
+  font-size: 10px;
+}
+
+#welcome {
+  margin-right: 10px;
   font-family: Satisfy, Tahoma;
 }
 
 #sidebar {
   width: 22rem;
-  background-color: #1f4f1128;
+  background-color: #fbfbfbbb;
   border-right: solid 1px #e3e3e3;
   display: flex;
   flex-direction: column;
@@ -162,6 +181,7 @@ form[action$="destroy"] button {
   order: 1;
   line-height: 1;
   font-family: Philosopher, Tahooma;
+  background-color: #121212;
 }
 
 #sidebar > div {
@@ -170,7 +190,7 @@ form[action$="destroy"] button {
   gap: 0.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #fe8033;
+  border-bottom: 1px solid #080808;
 }
 
 #sidebar > div form {

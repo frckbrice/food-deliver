@@ -34,32 +34,17 @@ const router = createBrowserRouter([
   },
   {
     path: "foodDetails/:foodId",
-    element: (
-      <CartProvider>
-        <Toaster />
-        <FoodDetail />
-      </CartProvider>
-    ),
+    element: <FoodDetail />,
     errorElement: <ErrorPage />,
   },
   {
     path: "foodDetail/ShowCart",
-    element: (
-      <CartProvider>
-        <Toaster />
-        <ShowCart />
-      </CartProvider>
-    ),
+    element: <ShowCart />,
     errorElement: <ErrorPage />,
   },
   {
     path: "foodDetail/ShowCart/PayementDetails",
-    element: (
-      <CartProvider>
-        <Toaster />
-        <CheckoutPayement />
-      </CartProvider>
-    ),
+    element: <CheckoutPayement />,
     errorElement: <ErrorPage />,
   },
   {
@@ -74,33 +59,18 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: (
-      <>
-        <Toaster />
-        <SignIn />
-      </>
-    ),
+    element: <SignIn />,
     errorElement: <ErrorPage />,
   },
   {
     path: "SignUp",
-    element: (
-      <>
-        <Toaster />
-        <SignUp />
-      </>
-    ),
+    element: <SignUp />,
     errorElement: <ErrorPage />,
   },
 
   {
     path: "Login/Adminpage",
-    element: (
-      <CartProvider>
-        <Toaster />
-        <AdminPage />
-      </CartProvider>
-    ),
+    element: <AdminPage />,
     loader: AdminLoadMeals,
     action: AdminCreateMeal,
     // errorElement: <ErrorAdminPage />,
@@ -111,7 +81,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Index /> },
           {
-            path: "Login/Adminpage/meals/:mealId",
+            path: "/Login/Adminpage/meals/:mealId",
             element: <Food />,
             loader: sampleFoodLoader,
             // this action is for the fetcher to make gain of time from network delays.
@@ -124,7 +94,7 @@ const router = createBrowserRouter([
             action: EditFoodAction,
           },
           {
-            path: "Login/Adminpage/meals/:mealId/destroy",
+            path: "/Login/Adminpage/meals/:mealId/destroy",
             action: deleteAction,
             errorElement: (
               <div>
@@ -141,7 +111,12 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <>
+    {/* <React.StrictMode> */}
+    <CartProvider>
+      <Toaster position="top-right" reverseOrder={false} />
+      <RouterProvider router={router} />
+    </CartProvider>
+    {/* </React.StrictMode> */}
+  </>
 );

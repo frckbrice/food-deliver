@@ -34,6 +34,7 @@ body {
 
 .cart-meals {
   display: flex;
+  flex-direction: column;
   color: white;
   font-weight: 100;
   flex: 1;
@@ -41,9 +42,10 @@ body {
 
 .item-card {
   display: flex;
-  gap: 5%;
+  gap: 15px;
   border-bottom: 1px solid rgb(17, 227, 17);
-  padding-bottom: 15px;
+  width: fit-content;
+  padding: 15px;
 }
 
 .text-empty-cart {
@@ -54,8 +56,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex: 1;
-  margin: 15px;
+  margin-right: 5px;
 }
 
 .food-image2 {
@@ -68,8 +69,7 @@ body {
   display: flex;
   flex-direction: column;
   font-weight: 300;
-  font-family: Satisfy, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif;
+  font-family: Satisfy, sans-serif;
 }
 
 .name-and-trash {
@@ -83,7 +83,7 @@ body {
   font-size: 22px;
 }
 
-.remove-item {
+/* .remove-item {
   color: red;
   background-color: transparent;
   border: none;
@@ -93,7 +93,7 @@ body {
   background-color: rgba(250, 235, 215, 0.287);
   border-radius: 50px;
   cursor: pointer;
-}
+} */
 
 .qty,
 .delivery-est {
@@ -110,16 +110,15 @@ body {
   border-radius: 15px;
   border: 1px solid rgb(17, 227, 17);
   padding: 10px;
-  margin: 15px;
-  margin-left: 0;
+  margin: 15px 0 15px 0;
   text-align: center;
-  width: 43%;
+  width: 100%;
 }
 
 .flex {
   display: flex;
   /* gap: 15px; */
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   width: 50%;
 }
 

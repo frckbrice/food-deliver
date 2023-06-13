@@ -1,6 +1,6 @@
 import CartContext from "./cart-context.js";
-import { useReducer } from "react";
-import { Set as set, DeleteMeal } from "./functions.jsx";
+import { useReducer, useCallback } from "react";
+import { Set as set } from "./functions.jsx";
 import PropTypes from "prop-types";
 
 const defaultCartState = {
@@ -9,7 +9,7 @@ const defaultCartState = {
 };
 
 const cartReducer = (state, action) => {
-  console.log("before add", state, action);
+  //*ADD
 
   if (action.type === "ADD") {
     const updatedTotalAmount =
@@ -41,7 +41,7 @@ const cartReducer = (state, action) => {
 
     return cart;
   }
-
+  //*REMOVE
   if (action.type === "REMOVE") {
     const existingCartItemIndex = state.meals.findIndex(
       (item) => item.id === action.id
@@ -70,12 +70,37 @@ const cartReducer = (state, action) => {
     return cart;
   }
 
+  //* DELETE
   if (action.type === "DELETE") {
-    const isDeleted = DeleteMeal(action.id);
+    console.log(state.meals, "state.meals");
 
-    return isDeleted;
+    const existingCartItemIndex = state.meals.findIndex(
+      (item) => item.id === action.id
+    );
+    console.log(existingCartItemIndex, "existingCartItemIndex");
+
+    const existingItem = state.meals[existingCartItemIndex];
+    console.log(existingItem, "existingItem");
+    console.log(state.meals, "state.meals");
+
+    console.log(state.totalAmount, " state.totalAmount");
+
+    const updatedTotalAmount =
+      state.totalAmount - existingItem.price * existingItem.quantity;
+    console.log(updatedTotalAmount, "updatedTotalAmount");
+
+    const updatedMeals = state.meals.filter((item) => item.id !== action.id);
+
+    const cart = {
+      meals: updatedMeals,
+      totalAmount: updatedTotalAmount,
+    };
+
+    set("meals", cart);
+    return cart;
   }
 
+  //* CLEARALL
   if (action.type === "CLEARALL") {
     const cart = {
       meals: [],
@@ -89,7 +114,7 @@ const cartReducer = (state, action) => {
 
   return defaultCartState;
 };
-
+//*PROVIDER COMP.
 const CartProvider = (props) => {
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
@@ -97,7 +122,7 @@ const CartProvider = (props) => {
   );
 
   const addItemToCartHandler = (item) => {
-    console.log(item);
+    // console.log(item);
 
     dispatchCartAction({ type: "ADD", item: item });
   };
@@ -106,9 +131,9 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: "REMOVE", id: id });
   };
 
-  const deleteItemFromCartHandler = (id) => {
+  const deleteItemFromCartHandler = useCallback((id) => {
     dispatchCartAction({ type: "DELETE", id: id });
-  };
+  }, []);
 
   const clearAllmealsFromCartHandler = () => {
     dispatchCartAction({ type: "CLEARALL" });

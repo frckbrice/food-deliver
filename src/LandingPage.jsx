@@ -1,18 +1,15 @@
 import "./App.css";
-import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
-import CartProvider from "./store/CartProvider";
-import { Toaster } from "react-hot-toast";
+import Header from "./components/Layout/Header";
 
 function App() {
   return (
-    <CartProvider>
-      <Toaster />
+    <>
       <Header />
       <main>
         <Meals />
       </main>
-    </CartProvider>
+    </>
   );
 }
 

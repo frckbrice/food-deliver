@@ -30,7 +30,7 @@ const MealItemForm = (props) => {
     }
 
     props.onAddToCart(enteredAmountNumber);
-    amountInputRef.current.value = "0";
+    // amountInputRef.current.value = "0";
     toast(`Adding ${enteredAmountNumber} ${food.name} Meal in the cart`);
   };
 

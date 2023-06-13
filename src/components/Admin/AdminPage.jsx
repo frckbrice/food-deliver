@@ -60,13 +60,14 @@ const AdminRoot = () => {
       <div id="sidebar">
         <h1 className="root-h1">
           {" "}
-          <span>
+          <span id="welcome">
             Welcome to Admin Dashboard for <br /> Food-App Project
           </span>
           <button
             onClick={() => {
               navigate("/");
             }}
+            id="newh1"
           >
             HOME
           </button>
@@ -94,7 +95,9 @@ const AdminRoot = () => {
             <div className="sr-only" aria-live="polite"></div>
           </Form>
           <Form method="post">
-            <button type="submit">New</button>
+            <button type="submit" id="new">
+              New
+            </button>
           </Form>
         </div>
         <nav>

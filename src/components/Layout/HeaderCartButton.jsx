@@ -3,29 +3,28 @@ import classes from "./HeaderCartButton.module.css";
 import CartContext from "../../store/cart-context";
 import { useContext, useEffect, useState, memo } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLocalStorage } from "../../store/useLocalStorage";
 
 const HeaderCartButton = memo((props) => {
   const navigate = useNavigate();
+  const [nav, setNav] = useState(false);
+  // localStorage.removeItem("meals");
 
   const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
   const cartCtx = useContext(CartContext);
 
   const { meals } = cartCtx;
-  // const { meals } = useLocalStorage("meals");
-  // const { meals } = getMeals();
-
-  console.log(meals);
 
   const numberOfCartmeals = meals.reduce((curNumber, item) => {
     return curNumber + item.quantity;
   }, 0);
 
-  console.log("numberOfCartmeals", numberOfCartmeals);
-
   const btnClasses = `${classes.button} ${
     btnIsHighlighted ? classes.bump : ""
   }`;
+
+  const handleAddItem = () => {
+    setNav(true);
+  };
 
   useEffect(() => {
     if (meals.length === 0) {
@@ -37,16 +36,17 @@ const HeaderCartButton = memo((props) => {
       setBtnIsHighlighted(false);
     }, 300);
 
+    if (nav) {
+      navigate(`/foodDetail/ShowCart`);
+    }
+
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [meals, nav, navigate]);
 
   return (
-    <button
-      className={btnClasses}
-      onClick={() => navigate(`/foodDetail/ShowCart`)}
-    >
+    <button className={btnClasses} onClick={handleAddItem}>
       <span className={classes.icon}>
         <TiShoppingCart size={30} />
       </span>

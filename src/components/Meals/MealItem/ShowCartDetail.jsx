@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { HiOutlineTrash } from "react-icons/hi";
 import toast from "react-hot-toast";
 import CartContext from "../../../store/cart-context";
 import classes from "./ShowCartDetail.module.css";
-// import HeaderFoodDetail from "../../Layout/HeaderFoodDetail";
 import "./ShowCartDetail.module.css";
 import Emptyplate from "../../../assests/emptyplate.png";
 import Card2 from "../../UI/Card2";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Layout/Header";
+import DeleteButton from "./DeleteButton";
 
 const ShowCart = () => {
   const navigate = useNavigate();
@@ -18,12 +18,20 @@ const ShowCart = () => {
 
   const cartCtx = useContext(CartContext);
 
-  const { totalAmount, meals, removeItem, deleteItem, addItem } = cartCtx;
-  console.log("total amount in showcartdetail", totalAmount);
+  const { meals, totalAmount, removeItem, deleteItem, addItem } = cartCtx;
+
+  // useEffect(() => {});
+  const handleDeleteItem = useCallback(
+    (e, item) => {
+      e.preventDefault();
+      deleteItem(item.id);
+    },
+    [deleteItem]
+  );
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <div className={classes["cart-wrapper"]}>
         <Card2>
           <div className={classes["cart-meals"]}>
@@ -49,15 +57,15 @@ const ShowCart = () => {
                   <div className={classes["item-details"]}>
                     <div className={classes["name-and-trash"]}>
                       <h3 className="text-3xl">{item.name}</h3>
-                      <p>
+                      <div className="trash-div">
                         <button
                           type="button"
-                          onClick={() => deleteItem(item.id)}
+                          onClick={(e) => handleDeleteItem(e, item)}
                           className={classes["remove-item"]}
                         >
                           <HiOutlineTrash size={50} />
                         </button>
-                      </p>
+                      </div>
                     </div>
 
                     <div className={classes["deliv-est"]}>
