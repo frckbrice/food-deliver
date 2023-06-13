@@ -73,12 +73,9 @@ const SignIn = () => {
       accountUser.role === "admin"
     ) {
       setSuccessAuth(true);
-      // setTimeout(() => {
-      //   navigate("/Login/Adminpage");
-      // }, 400);
       setFlag(false);
       setlsData(true);
-      toast.success(`Login Successfull Mr. ${lsData.role}`);
+      toast.success(`Login Successfull Mr. ${values.role}`);
       resetForm({ values: "" });
     } else {
       setFlag(true);

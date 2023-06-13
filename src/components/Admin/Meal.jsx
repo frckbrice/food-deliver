@@ -31,7 +31,7 @@ export default function Food() {
             <Favorite meal={meal} />
           </h1>
 
-          {<p className="price text-green-500">${meal.price}</p>}
+          {<p className="price text-green-500 text-5xl">${meal.price}</p>}
 
           {meal.nutrient && <p className="nutrient">{meal.nutrient}</p>}
           {meal.description && (

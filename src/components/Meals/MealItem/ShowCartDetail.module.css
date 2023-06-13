@@ -138,12 +138,13 @@ body {
   color: aliceblue;
   position: absolute;
   right: 23%;
-  top: 19%;
+  top: 3%;
   font-family: Satisfy, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     sans-serif;
   display: flex;
   flex-direction: column;
   /* gap: 15px; */
+  line-height: 50px;
 }
 
 .btn {

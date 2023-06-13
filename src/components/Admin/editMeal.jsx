@@ -7,7 +7,7 @@ export async function action({ request, params }) {
   const formData = await request.formData();
   const updates = Object.fromEntries(formData);
   await updateMeal(params.mealId, updates);
-  return redirect(`/Login/Adminpage/meals/${params.mealId}`);
+  return redirect(`/Login/Adminpage/item/${params.mealId}`);
 }
 
 const EditMeal = () => {

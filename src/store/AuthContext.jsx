@@ -12,6 +12,7 @@ export const AuthContext = createContext({
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   useEffect(() => {
+    //* need tp write funcion getuser()
     const currentUser = getUser();
     setUser(currentUser);
   }, []);

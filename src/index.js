@@ -25,6 +25,7 @@ import { action as foodFavoriteAction } from "./components/Admin/Favorite";
 import ErrorAdminPage from "./components/Admin/ErrorAdminpage";
 import OrderDelivered from "./components/Cart/OrderDelivered";
 import OrderCanceled from "./components/Cart/OrderCanceled";
+// import AuthProvider from "./store/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -81,20 +82,21 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Index /> },
           {
-            path: "/Login/Adminpage/meals/:mealId",
+            // path: "/Login/Adminpage/meals/:mealId",
+            path: "/Login/Adminpage/item/:mealId",
             element: <Food />,
             loader: sampleFoodLoader,
             // this action is for the fetcher to make gain of time from network delays.
             action: foodFavoriteAction,
           },
           {
-            path: "Login/Adminpage/meals/:mealId/edit",
+            path: "/Login/Adminpage/item/:mealId/edit",
             element: <EditMeal />,
             loader: sampleFoodLoader,
             action: EditFoodAction,
           },
           {
-            path: "/Login/Adminpage/meals/:mealId/destroy",
+            path: "/Login/Adminpage/item/:mealId/destroy",
             action: deleteAction,
             errorElement: (
               <div>
@@ -112,10 +114,12 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    {/* <React.StrictMode> */}
+    {/* <React.StrictMode> this cause component to render twice at lest */}
     <CartProvider>
+      {/* <AuthProvider> */}
       <Toaster position="top-right" reverseOrder={false} />
       <RouterProvider router={router} />
+      {/* </AuthProvider> */}
     </CartProvider>
     {/* </React.StrictMode> */}
   </>

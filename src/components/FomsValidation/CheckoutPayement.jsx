@@ -130,10 +130,10 @@ const CheckoutPayement = () => {
                 meals.map((meal) => (
                   <div key={meal.id} className={classes.meal}>
                     <span>{meal.name}</span>{" "}
-                    <span>{(meal.quantity * meal.price).toFixed(2)}</span>
+                    <span>$ {(meal.quantity * meal.price).toFixed(2)}</span>
                   </div>
                 ))}
-              <h1 className="mt-6">Total Amount: {totalAmount.toFixed(2)}</h1>
+              <h1 className="mt-6">Total Amount: $ {totalAmount.toFixed(2)}</h1>
             </div>
 
             <Formik
