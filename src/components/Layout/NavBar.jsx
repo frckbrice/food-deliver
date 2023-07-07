@@ -38,7 +38,7 @@ const Navbar = () => {
               }}
             />
           ) : (
-            <MdClose style={{ width: "40px", height: "40px" }} />
+            <MdClose style={{ width: "40.5px", height: "40px" }} />
           )}
         </button>
 

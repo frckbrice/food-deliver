@@ -72,8 +72,8 @@ const FoodDetail = (props) => {
                       {`${parseInt(foodIdMeal.price).toFixed(2)}`
                         .toString()
                         .indexOf(".") !== -1
-                        ? `$${parseInt(foodIdMeal.price).toFixed(2)}`
-                        : `$${parseInt(foodIdMeal.price).toFixed(2)}.00`}
+                        ? `$${foodIdMeal.price.toFixed(2)}`
+                        : `$${foodIdMeal.price.toFixed(2)}.00`}
                     </span>
                   </p>
                 )}

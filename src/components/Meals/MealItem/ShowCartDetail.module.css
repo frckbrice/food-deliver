@@ -83,17 +83,13 @@ body {
   font-size: 22px;
 }
 
-/* .remove-item {
+.remove-item {
   color: red;
-  background-color: transparent;
   border: none;
-  position: absolute;
-  left: 50%;
-  top: 46%;
   background-color: rgba(250, 235, 215, 0.287);
   border-radius: 50px;
   cursor: pointer;
-} */
+}
 
 .qty,
 .delivery-est {
