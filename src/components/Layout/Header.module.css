@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 10%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(0 0 0/ 0.5);
   z-index: 10;
 }
 
@@ -29,8 +29,17 @@
   margin-left: 0.85rem;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .header h1 {
-    font-size: 14px;
+    margin-left: 0;
+  }
+
+  .header {
+    padding: 0 3%;
+    height: 6rem;
+  }
+
+  .main-image {
+    height: 17rem;
   }
 }

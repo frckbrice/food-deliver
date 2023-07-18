@@ -30,8 +30,8 @@ const MealItem = (props) => {
 
           <div className={classes.overlay}></div>
           <div className={classes["food-desc"]}>
-            <span className={classes.span}>{props.name}</span> <br /> <br />{" "}
-            <br /> <br />
+            <span className={classes.span}>{props.name}</span> <br />
+            <br />
             <em>
               <strong>Click for More details</strong>
             </em>

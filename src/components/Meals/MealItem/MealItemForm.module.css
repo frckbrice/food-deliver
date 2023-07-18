@@ -3,39 +3,32 @@
 }
 
 .form button {
-  font: inherit;
   cursor: pointer;
   background-color: #74fa4b;
-  border: 1px solid #185705;
+  /* border: 1px solid #185705; */
+  border: none;
   color: white;
   padding: 0.5rem 1.75rem;
-  border-radius: 20px;
+  border-radius: 30px;
   font-weight: bold;
   position: relative;
   display: inline-block;
   z-index: 1;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/*
- mt-1 bg-cta p-2 px-7 rounded-xl
-
-.form button:hover,
-.form button:active {
-  background-color: #fef433;
-  border-color: #185705;
-} */
-
-.form button span {
+/* * to have animation in the width fill of the span */
+/* .form button span {
   width: 0;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   background: rgb(255, 255, 255);
-  border-radius: 20px;
+  border-radius: 30px;
   z-index: -1;
   transition: 0.5s;
-}
+} */
 
 .form button:hover span {
   width: 100%;
@@ -43,4 +36,6 @@
 
 .form button:hover {
   color: #000;
+  box-shadow: 3px 5px 115px #94f7e6;
+  transform: translateY(-3px);
 }

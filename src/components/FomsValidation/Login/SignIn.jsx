@@ -57,11 +57,14 @@ const SignIn = () => {
       role: "admin",
     },
   ];
+
   useEffect(() => {
     if (successAuth) {
       navigate("/Login/Adminpage");
     }
-  }, [successAuth, navigate]);
+  }, []);
+
+  console.log(successAuth)
 
   const CheckLoginAndRedirect = (values, { setSubmitting, resetForm }) => {
     const accountUser = authUsers.find(

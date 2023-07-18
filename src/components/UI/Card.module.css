@@ -1,13 +1,14 @@
 .card {
+  max-width: 1280px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: url("../../assests/bg2.jpeg");
-  background-position: center;
-  /* background-repeat: no-repeat; */
+  /* grid-template-columns: repeat(4, 1fr); */
+
+  background: url("../../assests/bg2.jpeg") center;
+  /* background-position: center; */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   background-size: cover;
   padding: 1rem;
   box-shadow: 0 2px 20px 10px rgba(70, 41, 16, 0.95);
   border-radius: 14px;
-  /* background-color: rgb(255 255 255); */
-  /* width: 70%; */
 }
+

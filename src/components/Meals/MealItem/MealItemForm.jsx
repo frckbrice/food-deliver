@@ -49,7 +49,8 @@ const MealItemForm = (props) => {
         <Input ref={amountInputRef} label="Quantity" input={inputData} />
 
         <button>
-          <span></span> Add To Cart
+          {/* <span></span> */}
+           Add To Cart
         </button>
         {!amountIsValid && <p>Please enter a valid amount (1-10).</p>}
       </form>

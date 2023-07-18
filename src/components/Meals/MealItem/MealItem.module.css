@@ -77,15 +77,19 @@
   opacity: 0;
   left: 50%;
   transform: translateX(-50%);
-  transition: 1s;
+  transition: 0.3s;
 }
 
 .food-desc em {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #fff;
 }
 
 .single-food:hover .food-desc {
   bottom: 30%;
   opacity: 1;
+}
+
+@media screen and (max-width: 320px){
+  
 }
