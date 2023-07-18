@@ -10,6 +10,7 @@ import Favorite from "../../Admin/Favorite";
 import Card from "../../UI/Card";
 import Header from "../../Layout/Header";
 import { useLocalStorage } from "../../../store/useLocalStorage";
+import { foodInStock } from "../GetFoods";
 
 const FoodDetail = (props) => {
   const navigate = useNavigate();
@@ -17,7 +18,11 @@ const FoodDetail = (props) => {
 
   const { lsData } = useLocalStorage("displayList");
 
-  const foodIdMeal = getfoodInStock(lsData, foodId);
+  const foodIdMeal = lsData
+    ? getfoodInStock(lsData, foodId)
+    : getfoodInStock(foodInStock, foodId);
+
+    console.log(foodIdMeal)
 
   const cartCtx = useContext(CartContext);
 
@@ -47,11 +52,13 @@ const FoodDetail = (props) => {
       <div className={classes["food-details"]}>
         <Card>
           <div className={classes["div-image"]}>
-            <img
-              src={foodIdMeal.avatar}
-              alt=""
-              className={classes["food-image"]}
-            />
+            {foodIdMeal.avatar && (
+              <img
+                src={foodIdMeal.avatar}
+                alt=""
+                className={classes["food-image"]}
+              />
+            )}
           </div>
           <div className={classes["global-container"]}>
             <div className={classes["detail-of-food"]}>
@@ -66,8 +73,8 @@ const FoodDetail = (props) => {
               <div className={classes.favorite}></div>
               <div className="flex gap-x-4 border-b">
                 {foodIdMeal.price && (
-                  <p>
-                    Price:{" "}
+                  <p className="ml-4">
+                    <span style={{ fontSize: "25px" }}> Price: </span>
                     <span className={classes.price}>
                       {`${parseInt(foodIdMeal.price).toFixed(2)}`
                         .toString()
@@ -78,9 +85,40 @@ const FoodDetail = (props) => {
                   </p>
                 )}
               </div>
-              <dir className="w-144 border-b pb-1">
-                <h3 className="text-3xl">More details: </h3>
+              <dir className={classes.moredetail}>
+                {/* "w-144 border-b pb-1" */}
                 <span>{foodIdMeal.nutrient}</span>
+                <span className="text-xl w-144">Origin : </span>{" "}
+                {foodIdMeal.description && (
+                  <span>{foodIdMeal.description}.</span>
+                )}{" "}
+                <br />
+                <span className="text-xl">Support: </span> <br />
+                Energy :&nbsp;
+                {foodIdMeal.nutrients.energy && (
+                  <span>{foodIdMeal.nutrients.energy}</span>
+                )}
+                &nbsp;
+                <br />
+                Carbohydrate :&nbsp;
+                {foodIdMeal.nutrients.carbohydrate && (
+                  <span>{foodIdMeal.nutrients.carbohydrate}</span>
+                )}
+                <br />
+                Proteine :&nbsp;
+                {foodIdMeal.nutrients.proteine && (
+                  <span>{foodIdMeal.nutrients.proteine}</span>
+                )}
+                <br />
+                Fat:&nbsp;
+                {foodIdMeal.nutrients.fat && (
+                  <span>{foodIdMeal.nutrients.fat}</span>
+                )}
+                <br />
+                Water:&nbsp;
+                {foodIdMeal.nutrients.water && (
+                  <span>{foodIdMeal.nutrients.water}</span>
+                )}
                 <br />
               </dir>
             </div>

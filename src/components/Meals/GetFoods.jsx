@@ -1,7 +1,7 @@
 export const foodInStock = [
   {
     id: "1",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Muamba-Galinha.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Muamba-Galinha.jpg",
     name: "Muamba-Galinha ",
     description:
       "moamba galinha is the Democratic Republic of Congo’s national dish",
@@ -16,7 +16,7 @@ export const foodInStock = [
   },
   {
     id: "2",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Couscous-640x480.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Couscous-640x480.jpg",
     name: "Couscous North Africa",
     description: "Couscous in the Berber language means rolled or rounded",
     price: 18.99,
@@ -30,7 +30,7 @@ export const foodInStock = [
   },
   {
     id: "3",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Jollof-Rice-640x427.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Jollof-Rice-640x427.jpg",
     name: "Jollof Rice",
     description: "Jollof-rice A one-pot dish with rice as the star ingredient",
     price: 22.99,
@@ -45,7 +45,7 @@ export const foodInStock = [
   {
     id: "4",
     name: "Cachupa",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Cachupa-640x480.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Cachupa-640x480.jpg",
     description:
       "Cachupa has a smooth, buttery texture. The taste is an assortment of the different vegetable and meat varieties added to it",
     price: 22.99,
@@ -59,7 +59,7 @@ export const foodInStock = [
   },
   {
     id: "5",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Ndole.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Ndole.jpg",
     name: "Cameroon ndole",
     description:
       "Cameroon ndole is a delicious stew mainly comprising boiled bitter leaves, melon seeds, and peanuts, besides fish or meat",
@@ -74,7 +74,7 @@ export const foodInStock = [
   },
   {
     id: "6",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Yassa-640x360.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Yassa-640x360.jpg",
     name: "yassa or chicken yassa",
     description:
       "a mouthwatering stew prepared by marinating chicken in vinegar, onion, and lemon.",
@@ -89,7 +89,7 @@ export const foodInStock = [
   },
   {
     id: "7",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Kedjenou-640x427.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Kedjenou-640x427.jpg",
     name: "Kedjenou",
     description:
       "it is made by cooking chicken pieces, okra, tomato, eggplant, onion, garlic, thyme, chili pepper, ginger, and chicken broth together.",
@@ -105,7 +105,7 @@ export const foodInStock = [
   },
   {
     id: "8",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Ogbono-Soup.jpg ",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Ogbono-Soup.jpg ",
     name: "ogbono ",
     description:
       "made with ogbono seeds alongside other ingredients like onion, red palm oil, seasoning cube, stock, leafy and non-leafy vegetables (like spinach, bitter leaf, okra, tomato) as well as meat or fish",
@@ -120,7 +120,7 @@ export const foodInStock = [
   },
   {
     id: "9",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Chakalaka-640x458.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Chakalaka-640x458.jpg",
     name: "chakalaka",
     description:
       " a spicy vegetable dish prepared with tomato, onion, carrot, bean, bell pepper, ginger, and chili. ",
@@ -135,7 +135,7 @@ export const foodInStock = [
   },
   {
     id: "10",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Boerewors-640x480.jpg    ",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Boerewors-640x480.jpg    ",
     name: "Boerewors f.’ sausage",
     description:
       "Boer means farmer, and wors translates to sausage, meaning farmers’ sausage, typical of South Africa.",
@@ -150,7 +150,7 @@ export const foodInStock = [
   },
   {
     id: "11",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Bobotie-640x427.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Bobotie-640x427.jpg",
     name: "Bobotie",
     description:
       "made with lamb or ground beef or occasionally pork. Other ingredients include a whole lot of things like curry powder, spices, herbs, and vinegar.",
@@ -166,7 +166,7 @@ export const foodInStock = [
   },
   {
     id: "12",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Koshary-640x480.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Koshary-640x480.jpg",
     name: "Koshary or kosheri",
     description:
       "is a famous street food that originated in the middle half of the 19th century. This dish’s main ingredients include rice, lentils, and macaroni",
@@ -181,7 +181,7 @@ export const foodInStock = [
   },
   {
     id: "13",
-    pict: " https://flavorverse.com/wp-content/uploads/2021/01/Alloco-640x416.png",
+    avatar: " https://flavorverse.com/wp-content/uploads/2021/01/Alloco-640x416.png",
     name: " Alloco",
     description:
       "a fried plantain dish of West and East Africa, seasoned in garlic, parsley, tomato, onion, green pepper, and black pepper. ",
@@ -196,7 +196,7 @@ export const foodInStock = [
   },
   {
     id: "14",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Banga-Soup.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Banga-Soup.jpg",
     name: "Banga-Soup",
     description:
       "It is a delicious Nigerian soup prepared with palm fruit, vegetables, beef, and fish, alongside chili pepper and salt seasonings..",
@@ -211,7 +211,7 @@ export const foodInStock = [
   },
   {
     id: "15",
-    pict: "https://flavorverse.com/wp-content/uploads/2021/01/Chicken-Tagine-640x575.jpg",
+    avatar: "https://flavorverse.com/wp-content/uploads/2021/01/Chicken-Tagine-640x575.jpg",
     name: "chicken tajine",
     description: "Couscous in the Berber language means rolled or rounded",
     nutrients: {
@@ -226,7 +226,7 @@ export const foodInStock = [
   },
   {
     id: "16",
-    pict: " https://flavorverse.com/wp-content/uploads/2021/01/Thieboudienne-640x425.jpg",
+    avatar: " https://flavorverse.com/wp-content/uploads/2021/01/Thieboudienne-640x425.jpg",
     name: "thieboudienne",
     description:
       "Senegal’s national dish, thieboudienne, was prepared by cooking rice and fish in a single pot seasoned in tomato sauce.",

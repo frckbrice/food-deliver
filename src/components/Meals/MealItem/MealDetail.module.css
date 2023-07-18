@@ -17,7 +17,7 @@ body {
   position: absolute;
   /* border: 1px solid salmon; */
   width: 75%;
-  top: 34%;
+  top: 28%;
   left: 12%;
   margin: auto;
 }
@@ -50,25 +50,21 @@ body {
 .go-back {
   font: inherit;
   cursor: pointer;
-  background-color: #74fa4b;
-  border: 1px solid #185705;
+  background-color: #f73e26;
   color: white;
   padding: 0.5rem 2rem;
   border-radius: 20px;
   font-weight: bold;
   display: inline-block;
   z-index: 1;
-  /* position: absolute;
-  position: fixed;
-  top: 80%;
-  right: 19%; */
+   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 span {
   /* color: #e37210; */
 }
 
-.go-back span {
+/* .go-back span {
   width: 0;
   height: 100%;
   position: absolute;
@@ -78,7 +74,7 @@ span {
   border-radius: 20px;
   z-index: -1;
   transition: 0.5s;
-}
+} */
 
 .go-back:hover span {
   width: 100%;
@@ -86,6 +82,8 @@ span {
 
 .go-back:hover {
   color: #000;
+   box-shadow: 3px 5px 115px #94f7e6;
+  transform: translateY(-3px);
 }
 
 .div-mealItemForm {
@@ -96,4 +94,19 @@ span {
   gap: 50%;
   margin-left: 15px;
   margin-top: 25px;
+}
+
+/* .moredetail {
+  width: ;
+} */
+
+@media screen and (max-width: 768px) {
+  .food-details {
+    color: #fff;
+    font-family: Philosopher, "Gill Sans", "Gill Sans MT";
+    position: absolute;
+    width: 93%;
+    top: 15%;
+    left: 3.75%;
+  }
 }

@@ -18,7 +18,7 @@ lsData ? mealsList = lsData?.map((meal) => (
   )) : mealsList = foodInStock?.map((meal) => (
     <MealItem
       key={meal.id}
-      avatar={meal.pict}
+      avatar={meal.avatar}
       name={meal.name}
       price={meal.price}
       id={meal.id}

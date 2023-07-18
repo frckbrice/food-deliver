@@ -1,34 +1,36 @@
-import React from "react";
-import { useFetcher } from "react-router-dom";
+import React, { useState } from "react";
+import { Form } from "react-router-dom";
 import { updateMeal } from "./modules";
 import "./style.css";
+import { AiFillStar } from "react-icons/ai";
+import { AiOutlineStar } from "react-icons/ai";
 
-export async function action({ request, params }) {
-  let formData = await request.formData();
-  return updateMeal(params.mealId, {
-    favorite: formData.get("favorite") === "true",
-  });
-}
+export async function action() {}
 
 const Favorite = ({ meal }) => {
-  // useFetcher hook. It allows us to communicate with loaders and actions without causing a navigation.
-  const fetcher = useFetcher();
+  const [favorite, setFavorite] = useState(false);
+  const handleClic = () => {
+    if (favorite) {
+      setFavorite(false);
+    } else {
+      setFavorite(true);
+    }
+  };
 
-  let favorite = meal.favorite;
-
-  if (fetcher.formData) {
-    favorite = fetcher.formData.get("favorite") === "true";
-  }
   return (
-    <fetcher.Form method="post">
+    <Form method="post">
       <button
-        name="favorite"
-        value={favorite ? "false" : "true"}
-        aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
+        type="button"
+        className="btn-favorite"
+        onClick={() => handleClic()}
       >
-        {favorite ? "★" : "☆"}
+        {favorite ? (
+          <AiFillStar size={30} style={{ color: "yellow" }} />
+        ) : (
+          <AiOutlineStar size={30} />
+        )}
       </button>
-    </fetcher.Form>
+    </Form>
   );
 };
 
