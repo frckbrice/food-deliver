@@ -63,3 +63,13 @@
     top: 0;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .header h1 {
+    /* transform: translateY(70px); */
+    position: absolute;
+    left: 15px;
+    top: 0;
+  }
+
+}

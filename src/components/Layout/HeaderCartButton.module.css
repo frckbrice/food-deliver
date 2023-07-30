@@ -111,13 +111,13 @@ a {
     margin-right: 70px;
   }
 
- .badge {
-  position: absolute;
-  right: 10px;
- }
+  .badge {
+    position: absolute;
+    right: 10px;
+  }
 }
 
-@media screen and (max-width:375px) {
+@media screen and (max-width: 375px) {
   .tiShoppingCart {
     display: none;
   }
@@ -125,5 +125,13 @@ a {
   .button {
     padding: 2rem 2rem 2rem 2.7rem;
     width: fit-content;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .button {
+   position: absolute;
+   right: -15%;
+   top: 10%;
   }
 }

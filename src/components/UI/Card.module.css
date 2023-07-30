@@ -40,3 +40,13 @@
     padding: 0.75rem 0;
   }
 }
+
+@media screen and (max-width:320px) {
+    .card {
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    margin-top: 38vw;
+    padding: 0.75rem 0;
+  }
+
+
+}

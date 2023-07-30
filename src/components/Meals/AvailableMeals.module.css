@@ -80,3 +80,12 @@ body {
     font-size: 70px;
   }
 }
+
+@media screen and (max-width:320px) {
+  .menuh2 {
+    position: absolute;
+    left: 18%;
+    top: 0.5%;
+    font-size: 70px;
+  }
+}
