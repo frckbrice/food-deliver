@@ -9,6 +9,7 @@ import Card2 from "../UI/Card2";
 import CartContext from "../../store/cart-context";
 import HeaderWithoutBtn from "../Layout/HeaderWithoutBtn";
 import { Set as set } from "../../store/functions";
+// import mastercard from '../../assests/masterCard.png'
 
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -129,11 +130,18 @@ const CheckoutPayement = () => {
               {meals.length >= 1 &&
                 meals.map((meal) => (
                   <div key={meal.id} className={classes.meal}>
-                    <span>{meal.name}</span>{" "}
-                    <span>$ {(meal.quantity * meal.price).toFixed(2)}</span>
+                    <span style={{ color: "#897a7a" }}>{meal.name}</span>{" "}
+                    <span style={{ color: "#1f7305" }}>
+                      $ {(meal.quantity * meal.price).toFixed(2)}
+                    </span>
                   </div>
                 ))}
-              <h1 className="mt-6">Total Amount: $ {totalAmount.toFixed(2)}</h1>
+              <h1 className="mt-6 ">
+                Total Amount:{" "}
+                <span style={{ color: "#1f7305" }}>
+                  $ {totalAmount.toFixed(2)}
+                </span>{" "}
+              </h1>
             </div>
 
             <Formik
@@ -193,6 +201,7 @@ const CheckoutPayement = () => {
                   <label htmlFor="payementCard">Enter Card Informations</label>
                   <br />
                   <PaymentInputsWrapper {...wrapperProps}>
+                  
                     <svg {...getCardImageProps({ images })} />
                     <Field name="cardNumber" className={classes.cardNumber}>
                       {({ field }) => (
@@ -232,7 +241,8 @@ const CheckoutPayement = () => {
                   Submit
                 </button>
                 <button
-                  type="submit"
+                  type="button"
+                  id="cancelBtnCheckOut"
                   className={classes.bton}
                   onClick={() => {
                     navigate("/foodDetail/ShowCart/PayementDetails/cancel");

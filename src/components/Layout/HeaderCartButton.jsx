@@ -48,7 +48,7 @@ const HeaderCartButton = memo((props) => {
   return (
     <button className={btnClasses} onClick={handleAddItem}>
       <span className={classes.icon}>
-        <TiShoppingCart size={30} className={classes.tiShoppingCart}/>
+        <TiShoppingCart size={50} className={classes.tiShoppingCart}/>
       </span>
       <span className={classes.title}>Your Cart</span>
       <span className={classes.badge}>{numberOfCartmeals}</span>

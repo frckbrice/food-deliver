@@ -5,7 +5,7 @@ body {
 }
 
 .main-container {
-  color: aliceblue;
+  color: #897a7a;
   min-width: 90%;
   /* background-color: blueviolet; */
   font-family: Philosopher, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -38,7 +38,7 @@ body {
 }
 
 h1 {
-  text-align: center;
+  text-align: right;
   font-family: Satisfy, sans-serif;
   padding: 0 1.5rem;
   font-size: 40px;
@@ -55,7 +55,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   font-size: 18px;
-  color: aliceblue;
+  padding: 1rem 0;
 }
 
 .form {
@@ -64,7 +64,7 @@ h1 {
   display: flex;
   flex-direction: column;
   border: solid 1px beige;
-  justify-content: center;
+  justify-content: right;
   align-items: flex-start;
   gap: 5px;
   border: solid 1px rgb(82, 236, 26);
@@ -75,13 +75,13 @@ h1 {
   padding: 1rem 0.5rem;
   display: flex;
   flex-direction: column;
-  border: solid 1px rgb(82, 236, 26);
-  justify-content: center;
+  border: solid 1px #4bbd27;
+  justify-content: right;
   align-items: flex-start;
   gap: 5px;
   width: 427px;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: flex-start;
 }
 
@@ -95,7 +95,7 @@ h1 {
 
 .select {
   font-size: 16px;
-  width: 179%;
+  width: 170%;
   padding: 12px 10px;
   border-radius: 5px;
   color: black;
@@ -112,15 +112,15 @@ h1 {
 .bton {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: right;
+  text-align: right;
   font-size: 18px;
   width: 100%;
   margin: auto;
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: rgb(15, 227, 37);
+  background-color: #4bbd27;
   border-radius: 4px;
   color: white;
 }
@@ -128,22 +128,22 @@ h1 {
 .btonSignIn {
   /* display: flex;
   flex-direction: column;
-  align-items: center; */
-  text-align: center;
+  align-items: right; */
+  text-align: right;
   font-size: 22px;
   width: 410px;
   /* margin: auto; */
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: rgb(15, 227, 37);
+  background-color: #4bbd27;
   border-radius: 4px;
   color: white;
 }
 
 .card {
   margin-top: 15px;
-  color: rgb(15, 227, 37);
+  color: #4bbd27;
   margin-bottom: 10px;
 }
 

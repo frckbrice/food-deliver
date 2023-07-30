@@ -4,25 +4,24 @@
   border: none;
   background-color: #5bd736;
   color: white;
-  padding: 0.75rem 3rem;
+  padding: 1rem 3rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-radius: 25px;
   font-weight: bold;
   margin-right: 300px;
-   box-shadow: 0 2px 8px rgba(0 0 0/ 0.5);
+  box-shadow: 0 2px 8px rgba(0 0 0/ 0.5);
+  position: relative;
+}
+
+a {
+  text-decoration: none;
 }
 
 .button:hover,
 .button:active {
   background-color: #104600;
-}
-
-.icon {
-  width: 1.35rem;
-  height: 1.35rem;
-  margin-right: 0.5rem;
 }
 
 .badge {
@@ -36,6 +35,19 @@
 .button:hover .badge,
 .button:active .badge {
   background-color: #4bbd27;
+}
+
+.tiShoppingCart {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-right: 0.5rem;
 }
 
 .bump {
@@ -71,21 +83,22 @@
   }
 
   .tiShoppingCart {
-    width: 50px;
-    height: 50px;
+    top: 100%;
+    left: 100%;
+    transform: translate(-50%, -50%);
   }
 
-.icon {
-  margin: 0 15px 25px 0;
-  position: absolute;
-  left: 10px;
-}
+  .icon {
+    margin: 0 15px 25px 0;
+    position: absolute;
+    left: 10px;
+  }
 
-.title {
-  display: none;
-}
+  .title {
+    display: none;
+  }
 
-.badge {
-  padding: 0.5rem 1.5rem;
-}
+  .badge {
+    padding: 0.5rem 1.5rem;
+  }
 }

@@ -8,7 +8,7 @@ Sidebar navigation
 .navbar .toggle {
   position: fixed;
   right: 100px;
-  top: 14px;
+  top: 16px;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -17,11 +17,13 @@ Sidebar navigation
 }
 
 .menu-nav {
-  list-style: none;
+  /* width: 100px; */
+ list-style: none;
   position: absolute;
   background: #5bd736;
   left: 0;
   top: 50px;
+  padding-left: 0;
   overflow: hidden;
   z-index: 9;
   font-size: 16px;
@@ -34,9 +36,10 @@ Sidebar navigation
   transform: translateX(10px);
 }
 .menu-nav li a,
-.menu-nav li span {
+.menu-nav li  {
+   color: aliceblue;
   display: block;
-  padding: 1rem;
+  padding: .5rem;
 }
 
 @media screen and (max-width: 768px) {

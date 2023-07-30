@@ -8,12 +8,13 @@
 .input label {
   font-weight: bold;
   margin-right: 1rem;
-  color: white;
+  color:  #5bd736;
+  font-size: 1.25rem;
 }
 
 .input input {
   width: 8.75rem;
-  height: 2rem;
+  height: 3rem;
   border-radius: 5px;
   border: 1px solid #ccc;
   font: inherit;

@@ -1,23 +1,32 @@
+* {
+  /* border: 1px solid #f3634d; */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   position: relative;
+  width: 100vw;
+  height: 100vh;
+  /* border: 1px solid blue; */
 }
 
 .meals {
   max-width: 100vw;
   height: fit-content;
-  width: 80%;
+  /* width: 80%; */
   /* margin: auto; */
   animation: meals-appear 2s ease-out forwards;
   position: absolute;
-  top: 28%;
-  left: 10%;
+  /* top: 28%; */
+  /** important to use "vw" bcause it manage the whole layout*/
+  top: 18vw;
+  left: 3.5%;
+  margin-right: 3.5%;
+  padding: 0 0 3rem;
 }
 
-.meals ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
 
 @keyframes meals-appear {
   from {
@@ -31,8 +40,16 @@ body {
   }
 }
 
-@media  scree and (max-width: 768px){
-  .card {
-    grid-template-columns: repeat(2, 1fr)
+@media screen and (max-width: 768px) {
+
+  .menu {
+   position: absolute;
+   left: 42%;
+   top: 1%;
+   font-size: 40px;
+  }
+
+  .meals {
+    top: 25vw;
   }
 }

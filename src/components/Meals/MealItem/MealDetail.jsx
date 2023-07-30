@@ -64,7 +64,7 @@ const FoodDetail = (props) => {
             <div className={classes["detail-of-food"]}>
               <div className={classes.title}>
                 {foodIdMeal.name ? (
-                  <h1 className="text-3xl">{foodIdMeal.name}</h1>
+                  <h1 className="text-2xl">{foodIdMeal.name}</h1>
                 ) : (
                   <i>No Name</i>
                 )}{" "}

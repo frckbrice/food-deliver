@@ -1,13 +1,13 @@
 import "./App.css";
-import Meals from "./components/Meals/Meals";
 import Header from "./components/Layout/Header";
+import AvailableMeals from "./components/Meals/AvailableMeals";
 
 function App() {
   return (
     <>
       <Header />
       <main>
-        <Meals />
+        <AvailableMeals />
       </main>
     </>
   );

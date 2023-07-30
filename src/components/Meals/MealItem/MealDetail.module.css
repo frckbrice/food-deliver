@@ -4,11 +4,11 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  border: 1px solid blue;
 }
 
 body {
   position: relative;
+   background: #f1f1f1;
 }
 
 .food-details {
@@ -16,10 +16,11 @@ body {
   font-family: Philosopher, "Gill Sans", "Gill Sans MT";
   position: absolute;
   /* border: 1px solid salmon; */
-  width: 75%;
-  top: 28%;
-  left: 12%;
+  width: 90%;
+  top: 30%;
+  left: 3.5%;
   margin: auto;
+  color: #ac9e9e;
 }
 
 .food-image {
@@ -31,15 +32,17 @@ body {
 .global-container {
   display: flex;
   width: 60%;
-  float: right;
+  /* float: right; */
   position: absolute;
-  left: 30%;
+  left: 30.5%;
   top: 10px;
+  padding-top: 15px;
 }
 
 .price {
   font-size: 25px;
-  color: #74fa4b;
+  /* color: #74fa4b; */
+  color: #1f7305;
 }
 
 .title {
@@ -50,7 +53,7 @@ body {
 .go-back {
   font: inherit;
   cursor: pointer;
-  background-color: #f73e26;
+  background-color: #ee5945;
   color: white;
   padding: 0.5rem 2rem;
   border-radius: 20px;

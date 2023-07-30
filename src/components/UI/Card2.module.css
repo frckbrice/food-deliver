@@ -4,9 +4,11 @@
   box-shadow: rgba(67, 47, 10, 0.35) 0px 5px 15px;
 
   border-radius: 14px;
-  background: url("../../assests/bg2.jpeg");
+  /* background: url("../../assests/bg2.jpeg"); */
   background-position: center;
   width: 80%;
   min-height: fit-content;
   height: auto;
+  margin-bottom: 5%;
+  background-color: white;
 }

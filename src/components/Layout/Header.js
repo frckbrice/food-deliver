@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import mainheaderImage from "../../assests/headerBanner.jpg";
+import mainheaderImage from "../../assests/Hoenderpastei.png";
 import classes from "./Header.module.css";
 import HeaderCartButton from "./HeaderCartButton";
 import Navbar from "./NavBar";

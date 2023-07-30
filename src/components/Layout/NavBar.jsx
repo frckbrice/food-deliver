@@ -45,7 +45,7 @@ const Navbar = () => {
         <ul className={`menu-nav${navbarOpen ? " show-menu" : ""}`}>
           <li>
             <NavLink to={`/login`} onClick={() => setNavbarOpen(false)}>
-              SignIn
+              Login
             </NavLink>
           </li>
           <li>
