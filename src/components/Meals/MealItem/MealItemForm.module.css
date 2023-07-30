@@ -4,11 +4,11 @@
 
 .form button {
   cursor: pointer;
-  background-color: #74fa4b;
+  background-color: #5bd736;
   border: none;
   color: white;
   padding: 0.5rem 1.75rem;
-  border-radius: 30px;
+  
   font-weight: bold;
   position: relative;
   display: inline-block;
@@ -37,4 +37,6 @@
   color: #000;
   box-shadow: 3px 5px 115px #94f7e6;
   transform: translateY(-3px);
+  border-radius: 30px;
+  transition: 0.5s ease-in;
 }
