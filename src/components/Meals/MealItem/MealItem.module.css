@@ -106,7 +106,15 @@ body {
     /* position: absolute; */
     top: 0;
   }
+}
 
-  body {
+@media screen and (max-width: 475px) {
+  .avatar {
+    height: 100%;
+    width: 100%;
+  }
+
+  .mealItemForm {
+    width: 100%;
   }
 }

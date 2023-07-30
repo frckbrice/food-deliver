@@ -29,17 +29,7 @@ const AvailableMeals = () => {
 
   return (
     <section className={classes.meals}>
-      <h2
-        className={classes.menu}
-        style={{
-          textAlign: "center",
-          color: "#7cf34d",
-          fontSize: "5vw",
-          marginBottom: "12px",
-        }}
-      >
-        MENU
-      </h2>
+      <h2 className={classes.menuh2}>MENU</h2>
       <Card>{mealsList}</Card>
     </section>
   );

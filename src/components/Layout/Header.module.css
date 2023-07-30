@@ -32,7 +32,6 @@
 @media screen and (max-width: 768px) {
   .header h1 {
     margin-left: 0;
-
   }
 
   .header {
@@ -43,5 +42,24 @@
   .main-image {
     height: 17rem;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .header h1 {
+    padding: 1.25rem 0;
+  }
+
+  .header h1 p {
+    position: relative;
+    visibility: hidden;
+  }
+
+  .header h1 p:after {
+    content: "food  O. App";
+    position: absolute;
+    visibility: visible;
+    left: 0;
+    top: 0;
   }
 }

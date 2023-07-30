@@ -52,3 +52,9 @@ Sidebar navigation
     right: 8vw;
   }
 }
+
+@media screen and (max-width: 475px) {
+ .navbar .toggle {
+  right: 20px;
+ }
+}

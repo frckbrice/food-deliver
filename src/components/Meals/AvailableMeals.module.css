@@ -27,7 +27,6 @@ body {
   padding: 0 0 3rem;
 }
 
-
 @keyframes meals-appear {
   from {
     opacity: 0;
@@ -40,16 +39,44 @@ body {
   }
 }
 
-@media screen and (max-width: 768px) {
+.menuh2 {
+  text-align: center;
+  color: #7cf34d;
+  font-size: 80px;
+  margin-bottom: 12px;
+}
 
-  .menu {
-   position: absolute;
-   left: 42%;
-   top: 1%;
-   font-size: 40px;
+@media screen and (max-width: 768px) {
+  .menuh2 {
+    position: absolute;
+    left: 40%;
   }
 
   .meals {
     top: 25vw;
+    margin-right: 2%;
+  }
+}
+
+@media screen and (max-width: 475px) {
+ .menuh2 {
+    position: absolute;
+    left: 25%;
+    top: -0.4%;
+  }
+
+  .meals {
+    top: 50vw;
+    margin-left: 1%;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .menuh2 {
+    position: absolute;
+    left: 18%;
+    top: 0.1%;
+    font-size: 70px;
   }
 }

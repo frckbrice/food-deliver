@@ -9,7 +9,9 @@ const Header = () => {
   return (
     <Fragment>
       <header className={classes.header}>
-        <h1>Food Ordering App</h1>
+        <h1>
+          <p>Food Ordering App</p>{" "}
+        </h1>
         <Link to="/foodDetail/ShowCart">
           <HeaderCartButton />
         </Link>

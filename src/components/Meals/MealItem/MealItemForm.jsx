@@ -48,7 +48,7 @@ const MealItemForm = (props) => {
       <form className={classes.form} onSubmit={submitHandler}>
         <Input ref={amountInputRef} label="Quantity" input={inputData} />
 
-        <button>
+        <button className={classes.addtocart}>
           {/* <span></span> */}
            Add To Cart
         </button>

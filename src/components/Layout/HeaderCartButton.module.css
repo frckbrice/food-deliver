@@ -102,3 +102,28 @@ a {
     padding: 0.5rem 1.5rem;
   }
 }
+
+@media screen and (max-width: 475px) {
+  .button {
+    padding: 1.7rem 1rem;
+    width: 130px;
+    margin-top: 10px;
+    margin-right: 70px;
+  }
+
+ .badge {
+  position: absolute;
+  right: 10px;
+ }
+}
+
+@media screen and (max-width:375px) {
+  .tiShoppingCart {
+    display: none;
+  }
+
+  .button {
+    padding: 2rem 2rem 2rem 2.7rem;
+    width: fit-content;
+  }
+}
