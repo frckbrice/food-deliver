@@ -117,4 +117,8 @@ body {
   .mealItemForm {
     width: 100%;
   }
+
+  .meal{
+    margin: 10px;
+  }
 }

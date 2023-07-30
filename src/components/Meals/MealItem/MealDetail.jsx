@@ -68,9 +68,11 @@ const FoodDetail = (props) => {
                 ) : (
                   <i>No Name</i>
                 )}{" "}
+              </div>
+              <div className={classes.favorite}>
+                {" "}
                 <Favorite meal={foodIdMeal} />
               </div>
-              <div className={classes.favorite}></div>
               <div className="flex gap-x-4 border-b">
                 {foodIdMeal.price && (
                   <p className="ml-4">

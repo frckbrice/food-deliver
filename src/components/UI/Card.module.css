@@ -27,9 +27,14 @@
 
 @media screen and (max-width: 475px) {
   .card {
-    grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
+     */
+
+      grid-template-columns: 1fr;
     margin-top: 17vw;
     padding: 0.75rem 0;
+     
+    row-gap: 20px;
   }
 }
 

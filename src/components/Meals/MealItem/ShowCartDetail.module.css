@@ -157,3 +157,23 @@ body {
   justify-self: flex-end;
   margin-top: 40%;
 }
+
+@media screen and (max-width: 768px) {
+  
+}
+
+@media screen and (max-width: 475px) {
+  
+}
+
+@media screen and (max-width: 420px) {
+  
+}
+
+@media screen and (max-width: 375px) {
+  
+}
+
+@media screen and (max-width: 320px) {
+  
+}
