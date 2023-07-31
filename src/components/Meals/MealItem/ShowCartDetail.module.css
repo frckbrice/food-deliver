@@ -17,6 +17,7 @@ body {
   position: absolute;
   margin-left: 12%;
   top: 35%;
+  color: #231d1d;
 }
 
 .empty-cart {
@@ -24,7 +25,7 @@ body {
   gap: 30px;
   justify-content: center;
   align-items: center;
-  color: #0e0b0b;
+ color: #231d1d;
   width: 100%;
 }
 
@@ -36,7 +37,7 @@ body {
 .cart-meals {
   display: flex;
   flex-direction: column;
-  color: #897a7a;
+ color: #5b5252;
   font-weight: 100;
   flex: 1;
 }
@@ -132,7 +133,7 @@ body {
 }
 
 .order-summary {
-  color: #897a7a;
+  color: #5b5252;
   position: absolute;
   right: 23%;
   top: 3%;
