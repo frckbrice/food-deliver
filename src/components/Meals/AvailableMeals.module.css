@@ -44,13 +44,15 @@ body {
   color: #69ff2e;
   font-size: 10rem;
   margin-bottom: 12px;
-  transform: translateY(-50px);
+  transform: translateY(-40px);
 }
 
 @media screen and (max-width: 768px) {
   .menuh2 {
     position: absolute;
-    left: 40%;
+    left: 30%;
+    top: 0.7%;
+    font-size: 6rem;
   }
 
   .meals {
@@ -63,7 +65,7 @@ body {
  .menuh2 {
     position: absolute;
     left: 25%;
-    top: -0.4%;
+    top: -0.1%;
   }
 
   .meals {
@@ -77,7 +79,7 @@ body {
   .menuh2 {
     position: absolute;
     left: 18%;
-    top: 0.1%;
+    top: 0.7%;
     font-size: 70px;
   }
 }
@@ -86,7 +88,7 @@ body {
   .menuh2 {
     position: absolute;
     left: 18%;
-    top: 0.5%;
+    top: 1%;
     font-size: 70px;
   }
 }
