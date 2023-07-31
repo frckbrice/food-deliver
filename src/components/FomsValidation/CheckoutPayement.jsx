@@ -126,7 +126,7 @@ const CheckoutPayement = () => {
           <div className={classes.container}>
             <div>
               {" "}
-              <h1 className="mb-6 text-amber-600">Food(s) Ordered:</h1>
+              <h1 className="mb-6 text-amber-600 italic">Food(s) Ordered:</h1>
               {meals.length >= 1 &&
                 meals.map((meal) => (
                   <div key={meal.id} className={classes.meal}>

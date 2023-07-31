@@ -37,7 +37,7 @@ body {
   left: 18%;
 }
 
-h1 {
+.h1 {
   text-align: right;
   font-family: Satisfy, sans-serif;
   padding: 0 1.5rem;
@@ -169,4 +169,14 @@ h1 {
   color: blue;
   font-size: 14px;
   padding: 1px 10px;
+}
+
+
+@media screen and (max-width: 320px) {
+ 
+
+  .title h1 {
+    padding: 0;
+    margin: 0;
+  }
 }

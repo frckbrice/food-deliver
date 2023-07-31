@@ -105,19 +105,14 @@ span {
 
 @media screen and (max-width: 768px) {
   .food-details {
-    color: #fff;
-    font-family: Philosopher, "Gill Sans", "Gill Sans MT";
-    position: absolute;
-    /* width: 93%; */
     top: 15%;
-    left: 3.75%;
   }
 
-.div-image {
-  position: relative;
-  top: 0;
-  left: 0;
-}
+  .div-image {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
 
   .food-image {
     /* position: absolute; */
@@ -136,6 +131,13 @@ span {
     width: 100%;
     border-radius: 14px;
     padding: 1rem 2rem;
+  }
+
+  .favorite {
+    position: absolute;
+    right: 7%;
+    top: 4%;
+    margin-bottom: 20px;
   }
 
   .go-back {
@@ -170,31 +172,26 @@ span {
   }
 }
 
-
 @media screen and (max-width: 375px) {
-
   .global-container {
     top: 38%;
   }
 }
 
 @media screen and (max-width: 320px) {
-
   .global-container {
     top: 39%;
   }
 
-  /* .favorite {
-   position: absolute;
-   right: 7%;
-   margin-bottom: 20px;
-  } */
-
-  .title {
-   position: absolute;
-   left: 40px;
-   margin-bottom: 20px;
+  .favorite {
+    position: absolute;
+    right: 7%;
+    top: 2%;
+    margin-bottom: 20px;
   }
 
-  
+  .title h1 {
+    padding: 0;
+    margin: 0;
+  }
 }

@@ -5,7 +5,7 @@ body {
   width: 100%;
   height: 100vh;
   position: relative;
-   background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 .cart-wrapper {
@@ -132,10 +132,21 @@ body {
 }
 
 .order-summary {
-   color: #897a7a;
+  color: #897a7a;
   position: absolute;
   right: 23%;
   top: 3%;
+  font-family: Satisfy, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* gap: 15px; */
+  line-height: 50px;
+}
+
+.order-summary2 {
+  display: none;
+  color: #897a7a;
   font-family: Satisfy, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     sans-serif;
   display: flex;
@@ -159,21 +170,50 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  
+
+.cart-wrapper {
+  top: 20%;
+  height: 60vh;
+}
+
+  .order-summary2 {
+    display: block;
+    position: absolute;
+    /* top: -50%; */
+    left: 0;
+    color: #897a7a;
+    width: 80%;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    height: 200px;
+  }
+
+  .divbtn {
+    margin-top: 6%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+  }
+
+  .order-summary {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 475px) {
-  
+  .div2-image {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 420px) {
-  
 }
 
 @media screen and (max-width: 375px) {
-  
+  .cart-wrapper {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 320px) {
-  
 }

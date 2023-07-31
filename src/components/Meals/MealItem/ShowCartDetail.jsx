@@ -139,6 +139,38 @@ const ShowCart = () => {
               </div>
             </div>
           )}
+         
+            <div className={classes["order-summary2"]}>
+              <h3 className={classes["title"]}>Order Summary</h3>
+              <div className={classes["qty"]}>
+                <p>
+                  Quantity: &nbsp;&nbsp;
+                  <strong className={classes["text-green"]}>
+                    {meals.length} &nbsp;&nbsp; Product(s)
+                  </strong>{" "}
+                </p>
+              </div>
+              <div className={classes["subtotal"]}>
+                Sub Total : &nbsp;&nbsp;{" "}
+                <span className={classes["text-green"]}>
+                  ${totalAmount.toFixed(2)}
+                </span>
+              </div>
+              <div className={classes.divbtn}>
+                {/* <Link to="foodDetails/:foodId/showCart/checkoutPayement"> */}
+                <button
+                  className={classes["btn"]}
+                  type="button"
+                  onClick={() => {
+                    navigate("/foodDetail/ShowCart/PayementDetails");
+                  }}
+                >
+                  Process to Checkout
+                </button>
+                {/* </Link> */}
+              </div>
+            </div>
+        
         </Card2>
       </div>
     </>
