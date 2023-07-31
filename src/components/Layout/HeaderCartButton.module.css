@@ -72,6 +72,10 @@ a {
   }
 }
 
+title {
+  font-size: 18px;
+}
+
 @media screen and (max-width: 768px) {
   .button {
     margin-right: 20vw;

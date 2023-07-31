@@ -124,13 +124,15 @@ const CheckoutPayement = () => {
         <Card2>
           <h1 className={classes.Checkouttitle}>Checkout Process</h1>
           <div className={classes.container}>
-            <div>
+            <div className={classes.presentfoods}>
               {" "}
               <h1 className={classes.foodorderedtitle}>Food(s) Ordered:</h1>
               {meals.length >= 1 &&
                 meals.map((meal) => (
                   <div key={meal.id} className={classes.meal}>
-                    <span style={{ color: "#897a7a" }}>{meal.name}</span>{" "}
+                    <span style={{ color: "#231d1d;" }}>
+                      {meal.name}
+                    </span>{" "}
                     <span style={{ color: "#1f7305" }}>
                       $ {(meal.quantity * meal.price).toFixed(2)}
                     </span>
@@ -200,7 +202,10 @@ const CheckoutPayement = () => {
                 <div className={classes.card}>
                   <label htmlFor="payementCard">Enter Card Informations</label>
                   <br />
-                  <PaymentInputsWrapper {...wrapperProps} className={classes.PaymentInputsWrapper} >
+                  <PaymentInputsWrapper
+                    {...wrapperProps}
+                    className={classes.PaymentInputsWrapper}
+                  >
                     <svg {...getCardImageProps({ images })} />
                     <Field name="cardNumber" className={classes.cardNumber}>
                       {({ field }) => (

@@ -11,8 +11,8 @@ body {
 .cart-wrapper {
   display: flex;
   overflow: hidden;
-  /* gap: 18%; */
-  width: 85%;
+  color: #231d1d;
+  width: 60%;
   min-height: fit-content;
   position: absolute;
   margin-left: 12%;
@@ -24,7 +24,7 @@ body {
   gap: 30px;
   justify-content: center;
   align-items: center;
-  /* padding-left: 20%;    */
+  color: #0e0b0b;
   width: 100%;
 }
 
@@ -176,7 +176,7 @@ body {
     width: 90%;
     left: -8%;
     min-height: 100vh;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
   }
 
   .order-summary2 {

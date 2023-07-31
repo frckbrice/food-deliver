@@ -41,9 +41,10 @@ body {
 
 .menuh2 {
   text-align: center;
-  color: #7cf34d;
-  font-size: 80px;
+  color: #69ff2e;
+  font-size: 10rem;
   margin-bottom: 12px;
+  transform: translateY(-50px);
 }
 
 @media screen and (max-width: 768px) {
