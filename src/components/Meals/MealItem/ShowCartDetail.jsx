@@ -140,7 +140,7 @@ const ShowCart = () => {
             </div>
           )}
          
-            <div className={classes["order-summary2"]}>
+       {meals.length >= 1 && (     <div className={classes["order-summary2"]}>
               <h3 className={classes["title"]}>Order Summary</h3>
               <div className={classes["qty"]}>
                 <p>
@@ -170,7 +170,7 @@ const ShowCart = () => {
                 {/* </Link> */}
               </div>
             </div>
-        
+       )}
         </Card2>
       </div>
     </>

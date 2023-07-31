@@ -153,6 +153,7 @@ body {
   flex-direction: column;
   /* gap: 15px; */
   line-height: 50px;
+  visibility: hidden;
 }
 
 .btn {
@@ -173,11 +174,14 @@ body {
 
 .cart-wrapper {
   top: 20%;
-  height: 60vh;
+  width: 90%;
+
+  min-height: 100vh;
+  margin-bottom: 5%;
 }
 
   .order-summary2 {
-    display: block;
+    visibility: visible;
     position: absolute;
     /* top: -50%; */
     left: 0;
@@ -206,14 +210,9 @@ body {
   }
 }
 
-@media screen and (max-width: 420px) {
-}
-
 @media screen and (max-width: 375px) {
   .cart-wrapper {
     width: 100%;
   }
 }
 
-@media screen and (max-width: 320px) {
-}

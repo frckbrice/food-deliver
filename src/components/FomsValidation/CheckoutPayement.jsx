@@ -122,11 +122,11 @@ const CheckoutPayement = () => {
       <HeaderWithoutBtn />
       <main className={classes["main-container"]}>
         <Card2>
-          <h1 className={classes.h1}>Checkout Process</h1>
+          <h1 className={classes.Checkouttitle}>Checkout Process</h1>
           <div className={classes.container}>
             <div>
               {" "}
-              <h1 className="mb-6 text-amber-600 italic">Food(s) Ordered:</h1>
+              <h1 className={classes.foodorderedtitle}>Food(s) Ordered:</h1>
               {meals.length >= 1 &&
                 meals.map((meal) => (
                   <div key={meal.id} className={classes.meal}>
@@ -200,8 +200,7 @@ const CheckoutPayement = () => {
                 <div className={classes.card}>
                   <label htmlFor="payementCard">Enter Card Informations</label>
                   <br />
-                  <PaymentInputsWrapper {...wrapperProps}>
-                  
+                  <PaymentInputsWrapper {...wrapperProps} className={classes.PaymentInputsWrapper} >
                     <svg {...getCardImageProps({ images })} />
                     <Field name="cardNumber" className={classes.cardNumber}>
                       {({ field }) => (
